@@ -1,0 +1,1 @@
+<?php if(isset($current_chapter)){ echo $current_chapter; } ?>

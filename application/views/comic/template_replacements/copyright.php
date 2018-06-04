@@ -1,0 +1,1 @@
+<?php echo $site['site_name']; ?> copyright &copy; <?php echo $site['site_copyright_year']; ?> - <?php echo date('Y'); ?> <?php echo $site['site_copyright']; ?>.

@@ -1,0 +1,1 @@
+<?php if(isset($character) && isset($character->name)){ echo $character->name; } ?>

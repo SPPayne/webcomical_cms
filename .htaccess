@@ -1,0 +1,14 @@
+RewriteEngine on
+
+RewriteBase /
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php/$1 [L]
+
+#Set environment variables
+SetEnv CI_ENV production
+
+# For security reasons, Option followsymlinks cannot be overridden.
+#Options +FollowSymlinks
+Options +SymLinksIfOwnerMatch
+RewriteEngine on
