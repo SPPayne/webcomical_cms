@@ -331,7 +331,14 @@ class Tagging_model extends CI_Model {
 		//Join tables together, return results
 		$sql = "SELECT tags.*,link.* FROM `comic_tags` AS tags LEFT JOIN " . $this->db->protect_identifiers($table) . " AS link ON 
 		tags.`linkid` = link." . $this->db->protect_identifiers($join_field) . " WHERE tags.type = " . $this->db->escape($type) . " 
-		AND tags.pageid = " . $this->db->escape($pageid) . " ORDER BY " . $this->db->protect_identifiers($order_by);
+		AND tags.pageid = " . $this->db->escape($pageid);
+		
+		//Limit characters to only the "active" ones
+		if($type == "character"){
+			$sql .= " AND link.profile_active = 'Y'";
+		}
+		
+		$sql .= " ORDER BY " . $this->db->protect_identifiers($order_by);
 		
 		//DEBUG
 		//echo $sql;
