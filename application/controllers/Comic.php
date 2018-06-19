@@ -228,7 +228,8 @@ class Comic extends CI_Controller {
 		if($this->data['page']->chapterid){
 			$chapter = $this->Chapters->fetch_chapter($filters = array('chapterid' => $this->data['page']->chapterid));
 			if($chapter){
-				$this->data['current_chapter'] = $chapter->name;
+				$this->data['current_chapter'] 			= $chapter->name;
+				$this->data['current_chapter_blurb'] 	= $chapter->description;
 			}
 		}
 		
