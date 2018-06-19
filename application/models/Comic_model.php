@@ -953,6 +953,7 @@ class Comic_model extends CI_Model {
 		//If display flag is set, just get the last page "for display"
 		if($on_display){
 			$this->db->where('filename <>',NULL);
+			$this->db->where('published <= "' . date('Y-m-d H:i:s',time()) . '"',NULL);
 		}
 		
 		//Fetch
