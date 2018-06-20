@@ -219,10 +219,9 @@ class Utilities_model extends CI_Model {
 		$sitemap_data = $sitemap->generate('xml');
 		
 		//Create the file if it doesn't exist
-		$file = fopen("sitemap.xml", "w");
-		if(!$file){
-			return FALSE;
-		}
+		if(($file = @fopen("sitemap.xml", "w")) == FALSE){
+            return FALSE;
+        }
 		
 		//Dump xml contents to file
 		fwrite($file,$sitemap_data);
