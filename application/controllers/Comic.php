@@ -233,6 +233,19 @@ class Comic extends CI_Controller {
 			}
 		}
 		
+		//Meta
+		$this->data['meta'] = array(
+			'description' 	=> $this->data['page']->excerpt,
+			'image'			=> base_url() . 'assets/pages/' . $this->data['page']->filename,
+			'url'			=> base_url(uri_string())
+		);
+		if(!isset($this->data['title'])){
+			$this->data['meta']['title'] = $this->data['site']['site_name'];
+		} else {
+			$this->data['meta']['title'] = $this->data['title'] . ' | ' . $this->data['site']['site_name'];
+		}
+		$this->data['meta'] = array_filter($this->data['meta']);
+		
 		//Log page view
 		if(!$this->ion_auth->logged_in() && $this->router->fetch_method() != "index"){
 			$url = '/' . $this->router->fetch_method() . '/' . $slug;
@@ -259,6 +272,17 @@ class Comic extends CI_Controller {
 	
 		//Title
 		$this->data['title'] = $this->site_values['site_archive_term'];
+		
+		//Meta
+		$this->data['meta'] = array(
+			'title' 		=> $this->site_values['site_archive_term'] . ' | ' . $this->data['site']['site_name'],
+			'description' 	=> 'The ' . strtolower($this->site_values['site_archive_term']) . ' for ' . $this->data['site']['site_name'],
+			'url'			=> base_url(uri_string())
+		);
+		if($this->data['banners']){
+			$this->data['meta']['image'] = base_url() . 'assets/banners/' . $this->data['banners'][array_rand($this->data['banners'],1)]->filename;
+		}
+		$this->data['meta'] = array_filter($this->data['meta']);
 		
 		//Fetch entire pages and chapters
 		$this->data['archive'] = $this->Comic->fetch_valid_pages_in_order($reverse = TRUE,$active = TRUE);
@@ -311,6 +335,17 @@ class Comic extends CI_Controller {
 			
 			//Title
 			$this->data['title'] = 'Search the Comic';
+			
+			//Meta
+			$this->data['meta'] = array(
+				'title' 		=> $this->data['title'] . ' | ' . $this->data['site']['site_name'],
+				'description' 	=> 'Search for comics on ' . $this->data['site']['site_name'],
+				'url'			=> base_url(uri_string())
+			);
+			if($this->data['banners']){
+				$this->data['meta']['image'] = base_url() . 'assets/banners/' . $this->data['banners'][array_rand($this->data['banners'],1)]->filename;
+			}
+			$this->data['meta'] = array_filter($this->data['meta']);
 			
 			//Render
 			$this->_render_page_view('search',$this->data);
@@ -450,6 +485,16 @@ class Comic extends CI_Controller {
 			
 		}
 		
+		//Meta
+		$this->data['meta'] = array(
+			'title' 		=> $this->data['title'] . ' | ' . $this->data['site']['site_name'],
+			'url'			=> base_url(uri_string())
+		);
+		if($this->data['banners']){
+			$this->data['meta']['image'] = base_url() . 'assets/banners/' . $this->data['banners'][array_rand($this->data['banners'],1)]->filename;
+		}
+		$this->data['meta'] = array_filter($this->data['meta']);
+		
 		//Load tags view
 		$this->_render_page_view('tags',$this->data);
 		return;
@@ -480,6 +525,16 @@ class Comic extends CI_Controller {
 		
 		//Title
 		$this->data['title'] = $this->site_values['site_cast_term'];
+		
+		//Meta
+		$this->data['meta'] = array(
+			'title' 		=> $this->data['title'] . ' | ' . $this->data['site']['site_name'],
+			'url'			=> base_url(uri_string())
+		);
+		if($this->data['banners']){
+			$this->data['meta']['image'] = base_url() . 'assets/banners/' . $this->data['banners'][array_rand($this->data['banners'],1)]->filename;
+		}
+		$this->data['meta'] = array_filter($this->data['meta']);
 		
 		//Fetch cast
 		$this->data['cast'] = $this->Characters->fetch_all_characters(FALSE,TRUE);
@@ -513,6 +568,21 @@ class Comic extends CI_Controller {
 		
 		//Title
 		$this->data['title'] = 'Profile: ' . $this->data['character']->name;
+		
+		//Meta
+		$this->data['meta'] = array(
+			'title' 		=> $this->data['title'] . ' | ' . $this->data['site']['site_name'],
+			'description' 	=> strip_tags($this->data['character']->excerpt),
+			'url'			=> base_url(uri_string())
+		);
+		if($this->data['character']->filename){
+			$this->data['meta']['image'] = base_url() . 'assets/characters/' . $this->data['character']->filename;
+		} else {
+			if($this->data['banners']){
+				$this->data['meta']['image'] = base_url() . 'assets/banners/' . $this->data['banners'][array_rand($this->data['banners'],1)]->filename;
+			}
+		}
+		$this->data['meta'] = array_filter($this->data['meta']);
 		
 		//Log character view
 		if(!$this->ion_auth->logged_in()){
@@ -585,6 +655,17 @@ class Comic extends CI_Controller {
 		
 		//Title
 		$this->data['title'] = $this->site_values['site_about_term'];
+		
+		//Meta
+		$this->data['meta'] = array(
+			'title' 		=> $this->site_values['site_about_term'] . ' | ' . $this->data['site']['site_name'],
+			'description' 	=> 'Learn about ' . $this->data['site']['site_name'],
+			'url'			=> base_url(uri_string())
+		);
+		if($this->data['banners']){
+			$this->data['meta']['image'] = base_url() . 'assets/banners/' . $this->data['banners'][array_rand($this->data['banners'],1)]->filename;
+		}
+		$this->data['meta'] = array_filter($this->data['meta']);
 		
 		//About page
 		$this->data['about'] = $this->Comic->fetch_about_page($this->config->item('about','webcomic'));
