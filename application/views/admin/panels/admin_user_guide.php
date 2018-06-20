@@ -239,6 +239,7 @@
 					<li>[%COMIC%]</li>
 					<li>[%COMIC_BANNER%]</li>
 					<li>[%COMIC_NAV%]</li>
+					<li>[%PAGE_CHAPTER_BLURB%]</li>
 					<li>[%PAGE_CHAPTER_NAME%]</li>
 					<li>[%PAGE_COMMENTS%]</li>
 					<li>[%PAGE_NAME%]</li>
@@ -967,6 +968,17 @@
 			<td>
 				Loads app-specific meta tags; please ensure to include these within the "head" tags of your HTML 
 				template!
+			</td>
+		</tr>
+		<tr>
+			<td>[%PAGE_CHAPTER_BLURB%]</td>
+			<td>
+				<ul class="list-unstyled">
+					<li>template.html</li>
+				</ul>
+			</td>
+			<td>
+				Shows the chapter details for the current page, the "excerpt" for the chapter description.
 			</td>
 		</tr>
 		<tr>
