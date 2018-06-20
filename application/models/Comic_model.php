@@ -501,7 +501,7 @@ class Comic_model extends CI_Model {
 			}
 			if(isset($filters['verified']) && $this->validation->is_boolean($filters['verified'])){
 				$sql_mod[] = "`filename` IS NOT NULL";
-				$sql_mod[] = "`published` < " . $this->db->escape(date('Y-m-d h:i:s'));
+				$sql_mod[] = "`published` < " . $this->db->escape(date('Y-m-d H:i:s'));
 			}
 				
 		}
@@ -568,7 +568,7 @@ class Comic_model extends CI_Model {
 		//Active flag = is page available to view?
 		if($active != FALSE){
 			$this->db->where('filename IS NOT NULL');
-			$this->db->where('published < ',date('Y-m-d h:i:s'));
+			$this->db->where('published < ',date('Y-m-d H:i:s'));
 		}
 		
 		//Ordering?
