@@ -610,7 +610,7 @@ $config['uploads'] = array(
 		'allowed_types'	=> 'gif|jpg|png'
 	),
 	'pages'			=> array(
-		'max_size'		=> 10000,
+		'max_size'		=> 25000,
 		'max_width'		=> 1000,
 		'max_height'	=> 20000,
 		'allowed_types'	=> 'gif|jpg|png|swf'
