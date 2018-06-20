@@ -500,8 +500,8 @@ class Tagging_model extends CI_Model {
 	
 		//Form SQL
 		$sql = "SELECT comic.* FROM `comic` LEFT JOIN comic_tags ON comic.comicid = comic_tags.pageid LEFT JOIN " . $this->db->protect_identifiers($table) . " AS link ON 
-		comic_tags.linkid = link." . $this->db->protect_identifiers($join_field) . " WHERE comic.filename IS NOT NULL AND link.slug = " . $this->db->escape($slug) . " AND 
-		comic_tags.type = " . $this->db->escape($type) . " ORDER BY comic.page_ordering ASC";
+        comic_tags.linkid = link." . $this->db->protect_identifiers($join_field) . " WHERE comic.filename IS NOT NULL AND link.slug = " . $this->db->escape($slug) . " AND 
+        comic_tags.type = " . $this->db->escape($type) . " AND comic.published < " . $this->db->escape(date('Y-m-d H:i:s')) . " ORDER BY comic.page_ordering ASC";
 		
 		//DEBUG
 		//echo $sql;
