@@ -966,7 +966,7 @@ class Admin extends CI_Controller {
 				$this->data['page'] = $page;
 				
 				//Fetch any tag-related items
-				$this->data['characters_in_page'] 	= $this->Tagging->fetch_page_tags($pageid,$type = "character");
+				$this->data['characters_in_page'] 	= $this->Tagging->fetch_page_tags($pageid,$type = "character-all");
 				$this->data['tags_in_page'] 		= $this->Tagging->fetch_page_tags($pageid,$type = "tag");
 			
 			//No page - redirect to page management panel 

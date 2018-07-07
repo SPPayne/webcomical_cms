@@ -314,6 +314,7 @@ class Tagging_model extends CI_Model {
 		//Handle two types of tags
 		switch($type){
 			case "character":
+			case "character-all":
 				$table 			= "characters";
 				$join_field 	= "characterid";
 				$order_by		= "character_ordering";
@@ -330,7 +331,7 @@ class Tagging_model extends CI_Model {
 		
 		//Join tables together, return results
 		$sql = "SELECT tags.*,link.* FROM `comic_tags` AS tags LEFT JOIN " . $this->db->protect_identifiers($table) . " AS link ON 
-		tags.`linkid` = link." . $this->db->protect_identifiers($join_field) . " WHERE tags.type = " . $this->db->escape($type) . " 
+		tags.`linkid` = link." . $this->db->protect_identifiers($join_field) . " WHERE tags.type = " . $this->db->escape(str_ireplace('-all','',$type)) . " 
 		AND tags.pageid = " . $this->db->escape($pageid);
 		
 		//Limit characters to only the "active" ones
