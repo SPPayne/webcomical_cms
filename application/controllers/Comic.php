@@ -289,7 +289,7 @@ class Comic extends CI_Controller {
 		$this->data['meta'] = array_filter($this->data['meta']);
 		
 		//Fetch entire pages and chapters
-		$this->data['archive'] = $this->Comic->fetch_valid_pages_in_order($reverse = TRUE,$active = TRUE);
+		$this->data['archive'] = $this->Comic->fetch_valid_pages_in_order($reverse = TRUE,$active = TRUE,$subchapter_reverse = TRUE);
 		
 		//Render view
 		$this->_render_page_view('archive',$this->data);

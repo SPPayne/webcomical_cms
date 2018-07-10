@@ -96,9 +96,11 @@
 						</tr>
 					<?php } ?>
 				<?php } else { ?>
-					<tr>
-						<td colspan="4" class="danger">No pages assigned, chapter will be ignored.</td>
-					</tr>
+					<?php if(empty($chapter->subchapters)){ //Only show "ignore chapter" if there aren't subchapters ?>
+						<tr>
+							<td colspan="4" class="danger">No pages assigned, chapter will be ignored.</td>
+						</tr>
+					<?php } ?>
 				<?php } ?>
 				<tr>
 					<th colspan="4">

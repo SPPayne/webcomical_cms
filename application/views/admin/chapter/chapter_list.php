@@ -32,8 +32,8 @@
 										<td><?php echo $subchapter->name; ?></td>
 										<td class="text-center">
 											<?php if(count($chapter->subchapters) > 1){ //Plz note that "up" and "down" are inverted for subchapters! ?>
-												<a title="Move subchapter up" class="subchaptermove-up" href="/admin/move_chapter/<?php echo $subchapter->chapterid; ?>/down"><span class="glyphicon glyphicon-arrow-up"></span></a>&nbsp;&nbsp;
-												<a title="Move subchapter down" class="subchaptermove-down" href="/admin/move_chapter/<?php echo $subchapter->chapterid; ?>/up"><span class="glyphicon glyphicon-arrow-down"></span></a>&nbsp;&nbsp;
+												<a title="Move subchapter up" class="subchaptermove-up" href="/admin/move_chapter/<?php echo $subchapter->chapterid; ?>/up"><span class="glyphicon glyphicon-arrow-up"></span></a>&nbsp;&nbsp;
+												<a title="Move subchapter down" class="subchaptermove-down" href="/admin/move_chapter/<?php echo $subchapter->chapterid; ?>/down"><span class="glyphicon glyphicon-arrow-down"></span></a>&nbsp;&nbsp;
 											<?php }?>
 											<a title="Edit subchapter" href="/admin/create_chapter/<?php echo $subchapter->type; ?>/<?php echo $subchapter->chapterid; ?>"><span class="glyphicon glyphicon-pencil"></span></a>&nbsp;&nbsp;
 											<a title="Delete subchapter" class="delete-button" href="/admin/delete_chapter/<?php echo $subchapter->chapterid; ?>"><span class="glyphicon glyphicon-trash"></span></a>

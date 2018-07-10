@@ -599,7 +599,7 @@ class Comic_model extends CI_Model {
 	}
 	
 	//FUNC_FVPIO - Fetches all pages, verifies that corresponding page files exist
-	public function fetch_valid_pages_in_order($reverse = FALSE,$active = FALSE){
+	public function fetch_valid_pages_in_order($reverse = FALSE,$active = FALSE,$subchapter_reverse = FALSE){
 		
 		//Get most of the page info
 		$pages = $this->fetch_all_pages($reverse,FALSE,$active);
@@ -647,7 +647,7 @@ class Comic_model extends CI_Model {
 		
 		//We need to bolt in chapters for the ordering - so attempt to fetch those!
 		$this->load->model('Chapters_model','Chapters');
-		$chapters = $this->Chapters->fetch_all_chapters($reverse,$reverse);
+		$chapters = $this->Chapters->fetch_all_chapters($reverse,$subchapter_reverse);
 		
 		//DEBUG
 		//print_r($chapters); print_r($pages);
@@ -850,7 +850,7 @@ class Comic_model extends CI_Model {
 
 				//Subchapters
 				if(isset($chapter->subchapters)){
-					$chapter->subchapters = array_reverse($chapter->subchapters);
+					//$chapter->subchapters = array_reverse($chapter->subchapters);
 					foreach($chapter->subchapters as $skey => $subchapter){
 						$filters['chapterid'] 	= $subchapter->chapterid;
 						$subpage 				= $this->fetch_page($filters,$reverse = TRUE);
@@ -1155,21 +1155,17 @@ class Comic_model extends CI_Model {
 		}
 		$sql[] = implode(',',$sql_fields);
 
+		//If we're inserting, we need to update the page order. If we're updating we also need to do this so it appears at the 
+		//end of the assigned chapter/subchapter when set_default_order() runs. Fetch last page, add 1 and assign to SQL
+		$last_page = $this->fetch_max_page_order();
+		if(!$last_page){ //None, presumably no pages!
+			$last_page = 0;
+		}
+		$sql[] = ", `page_ordering` = " . $this->db->escape($last_page+1);
+		
 		//If we're updating, add the id of the page we're updating
 		if($pageid != FALSE){
-			
 			$sql[] = "WHERE `comicid` = " . $this->db->escape($pageid);
-		
-		//If we're inserting, we need to update the page order
-		} else {
-		
-			//Fetch last page, add 1 and assign to SQL
-			$last_page = $this->fetch_max_page_order();
-			if(!$last_page){ //None, presumably no pages!
-				$last_page = 0;
-			}
-			$sql[] = ", `page_ordering` = " . $this->db->escape($last_page+1);
-			
 		}
 		
 		//Assemble SQL
@@ -1276,7 +1272,7 @@ class Comic_model extends CI_Model {
 	public function set_default_order(){
 		
 		//Get all pages
-		$pages = $this->fetch_valid_pages_in_order($reverse = TRUE);
+		$pages = $this->fetch_valid_pages_in_order($reverse = TRUE,$active = FALSE,$subchapter_reverse = TRUE);
 		
 		//Sanity check - might not be any pages!
 		if(!$pages){

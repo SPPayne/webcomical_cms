@@ -1003,7 +1003,7 @@ class Admin extends CI_Controller {
 		$this->Comic->set_default_order();
 		
 		//Get pages with file checks
-		$this->data['pages'] = $this->Comic->fetch_valid_pages_in_order();
+		$this->data['pages'] = $this->Comic->fetch_valid_pages_in_order(FALSE,FALSE,FALSE);
 		
 		//DEBUG
 		//print_r($this->data['pages']);
@@ -1521,7 +1521,7 @@ class Admin extends CI_Controller {
 		}
 		
 		//Get chapters
-		$this->data['chapters'] = $this->Chapters->fetch_all_chapters();
+		$this->data['chapters'] = $this->Chapters->fetch_all_chapters(FALSE,FALSE);
 		
 		//Show pages
 		$this->load->admin_view('chapter/chapter_list',$this->data);
