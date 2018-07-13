@@ -1124,7 +1124,7 @@ class Comic_model extends CI_Model {
 		$input = $this->_format($input,$fields,$pageid);
 		
 		//DEBUG
-		//print_r($input);die;
+		//echo "Error: ";print_r($input);die;
 		
 		//Check for characters and tags
 		if(isset($input['characters'])){
@@ -1154,14 +1154,21 @@ class Comic_model extends CI_Model {
 			$sql_fields[] = $this->db->protect_identifiers($db_fieldname) . " = " . $this->db->escape($value);
 		}
 		$sql[] = implode(',',$sql_fields);
-
-		//If we're inserting, we need to update the page order. If we're updating we also need to do this so it appears at the 
-		//end of the assigned chapter/subchapter when set_default_order() runs. Fetch last page, add 1 and assign to SQL
-		$last_page = $this->fetch_max_page_order();
-		if(!$last_page){ //None, presumably no pages!
-			$last_page = 0;
+		
+		//If an ID sanity check file exists
+		if($pageid != FALSE && !$current_page = $this->fetch_page($filters = array('pageid' => $pageid))){
+			return FALSE;
 		}
-		$sql[] = ", `page_ordering` = " . $this->db->escape($last_page+1);
+
+		//If we're inserting, we need to update the page order. If we're updating (and the chapter ID has changed) we also need to do this so it appears at the 
+		//end of the assigned chapter/subchapter when set_default_order() runs. Fetch last page, add 1 and assign to SQL
+		if($pageid == FALSE || $current_page->chapterid != $input['chapterid']){
+			$last_page = $this->fetch_max_page_order();
+			if(!$last_page){ //None, presumably no pages!
+				$last_page = 0;
+			}
+			$sql[] = ", `page_ordering` = " . $this->db->escape($last_page+1);
+		}
 		
 		//If we're updating, add the id of the page we're updating
 		if($pageid != FALSE){
