@@ -1,6 +1,6 @@
 <?php if(isset($nav)){ ?>
 	<?php if($nav['prev_page'] && !empty($nav['prev_page'])){ //Previous page ?>
-		<a title="Previous <?php echo $site['site_page_term']; ?>" class="nav-link prev_page" href="/page/<?php echo $nav['prev_page']->slug; ?>">
+		<a title="Previous <?php echo $site['site_page_term']; ?>" class="nav-link prev_page" href="/page/<?php echo $nav['prev_page']->slug; ?><?php if($nav['preview']){ ?>/preview<?php } ?>">
 			<img 
 				class="comic-nav-button-prev comic-nav-button" 
 				alt="Previous <?php echo $site['site_page_term']; ?>" 

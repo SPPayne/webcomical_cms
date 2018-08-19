@@ -232,6 +232,12 @@ class Comic extends CI_Controller {
 		$this->data['nav_config'] 	= $this->navigation;
 		$this->data['nav'] 			= $this->Comic->fetch_pages_nav(FALSE,$this->data['page']->slug,$nav_flag,TRUE);
 		
+		//Is an admin logged in? Then we're previewing everything
+		$this->data['nav']['preview'] = FALSE;
+		if($nav_flag == FALSE){
+			$this->data['nav']['preview'] = TRUE;
+		}
+		
 		//Grab all the tags
 		$this->data['tags'] = $this->Tags->fetch_page_tags_collated($this->data['page']->comicid);
 		
