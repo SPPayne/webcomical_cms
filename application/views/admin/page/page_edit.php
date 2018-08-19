@@ -48,7 +48,7 @@
 		<a href="/assets/pages/<?php echo $page->filename; ?>" target="_blank">Preview comic file <span class="glyphicon glyphicon-new-window"></span></a>
 	</p>
 	<p>
-		<a href="/page/<?php echo $page->slug; ?>" target="_blank">
+		<a href="/page/<?php echo $page->slug; ?>/preview" target="_blank">
 			View page on the website <span class="glyphicon glyphicon-new-window"></span>
 		</a>
 	</p>

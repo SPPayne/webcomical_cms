@@ -34,7 +34,7 @@
 										<?php if($page->filename == NULL){ ?>
 											<?php echo $page->name; ?>
 										<?php } else { ?>
-											<a href="/page/<?php echo $page->slug; ?>" target="_blank">
+											<a href="/page/<?php echo $page->slug; ?>/preview" target="_blank">
 												<?php echo $page->name; ?> <span class="glyphicon glyphicon-new-window"></span>
 											</a>
 										<?php } ?>
@@ -77,7 +77,7 @@
 								<?php if($page->filename == NULL){ ?>
 									<?php echo $page->name; ?>
 								<?php } else { ?>
-									<a href="/page/<?php echo $page->slug; ?>" target="_blank">
+									<a href="/page/<?php echo $page->slug; ?>/preview" target="_blank">
 										<?php echo $page->name; ?> <span class="glyphicon glyphicon-new-window"></span>
 									</a>
 								<?php } ?>
