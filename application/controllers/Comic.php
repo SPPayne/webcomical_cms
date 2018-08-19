@@ -198,9 +198,20 @@ class Comic extends CI_Controller {
 		}
 		
 		//Set page filters
-		$filters = array('verified' => TRUE);
-		if($slug != FALSE){
-			$filters['slug'] = $slug;
+		if(!$this->ion_auth->logged_in()){ //Site visitor
+			$filters = array('verified' => TRUE);
+			if($slug != FALSE){
+				$filters['slug'] = $slug;
+			}
+			$nav_flag = TRUE;
+		} else { //Admin user logged in, bypasses need for page to be published for preview purposes
+			if($slug != FALSE){
+				$filters['slug'] = $slug;
+			}
+			if($preview == FALSE){
+				$filters = array('verified' => TRUE);
+			}
+			$nav_flag = FALSE; //We use this to represent whether the "verified" flag is set in nav formation otherwise it throws a wobbly
 		}
 		
 		//Get the page - file required
@@ -219,7 +230,7 @@ class Comic extends CI_Controller {
 		
 		//Fetch user settings, page links for navigation
 		$this->data['nav_config'] 	= $this->navigation;
-		$this->data['nav'] 			= $this->Comic->fetch_pages_nav(FALSE,$this->data['page']->slug,TRUE,TRUE);
+		$this->data['nav'] 			= $this->Comic->fetch_pages_nav(FALSE,$this->data['page']->slug,$nav_flag,TRUE);
 		
 		//Grab all the tags
 		$this->data['tags'] = $this->Tags->fetch_page_tags_collated($this->data['page']->comicid);
