@@ -197,21 +197,22 @@ class Comic extends CI_Controller {
 			redirect(base_url() . 'page/' . $redirect->redirect,'location',301);
 		}
 		
+		$filters = array();
+		
 		//Set page filters
 		if(!$this->ion_auth->logged_in()){ //Site visitor
-			$filters = array('verified' => TRUE);
-			if($slug != FALSE){
-				$filters['slug'] = $slug;
-			}
+			$filters['verified'] = TRUE;
 			$nav_flag = TRUE;
 		} else { //Admin user logged in, bypasses need for page to be published for preview purposes
-			if($slug != FALSE){
-				$filters['slug'] = $slug;
-			}
 			if($preview == FALSE){
-				$filters = array('verified' => TRUE);
+				$filters['verified'] = TRUE;
 			}
 			$nav_flag = FALSE; //We use this to represent whether the "verified" flag is set in nav formation otherwise it throws a wobbly
+		}
+		
+		//Pass slug to page filters
+		if($slug != FALSE){
+			$filters['slug'] = $slug;
 		}
 		
 		//Get the page - file required

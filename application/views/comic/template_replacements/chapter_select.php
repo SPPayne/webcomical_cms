@@ -9,11 +9,11 @@
 					<?php foreach($nav['chapter_select'] as $chapter => $urls){ ?>
 						<?php if(isset($urls['subs']) && !empty($urls['subs'])){ ?>
 							<?php foreach($urls['subs'] as $subchapter => $suburls){ ?>
-								<option <?php if($page->chapterid == $suburls->chapterid){ ?>selected="selected"<?php } ?> value="<?php echo $suburls->slug; ?>"> - <?php echo $subchapter; ?></option>
+								<option <?php if($page->chapterid == $suburls->chapterid){ ?>selected="selected"<?php } ?> value="<?php echo $suburls->slug; ?><?php if($nav['preview']){ ?>/preview<?php } ?>"> - <?php echo $subchapter; ?></option>
 							<?php } ?>
 						<?php } ?>
 						<?php if(isset($urls['main']) && !empty($urls['main'])){ ?>
-							<option <?php if($page->chapterid == $urls['main']->chapterid){ ?>selected="selected"<?php } ?> value="<?php echo $urls['main']->slug; ?>"><?php echo $chapter; ?></option>
+							<option <?php if($page->chapterid == $urls['main']->chapterid){ ?>selected="selected"<?php } ?> value="<?php echo $urls['main']->slug; ?><?php if($nav['preview']){ ?>/preview<?php } ?>"><?php echo $chapter; ?></option>
 						<?php } ?>
 					<?php } ?>
 				</select>

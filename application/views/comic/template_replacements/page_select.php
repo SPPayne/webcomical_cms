@@ -10,14 +10,14 @@
 							<?php foreach($chapter->subchapters as $subchapter){ ?>
 								<?php if(!empty($subchapter->pages)){ //Only show if pages ?>
 									<?php foreach($subchapter->pages as $subpage){ ?>
-										<option <?php if($page->comicid == $subpage->comicid){ ?>selected="selected"<?php } ?> value="<?php echo $subpage->slug; ?>"><?php echo $subpage->name; ?></option>
+										<option <?php if($page->comicid == $subpage->comicid){ ?>selected="selected"<?php } ?> value="<?php echo $subpage->slug; ?><?php if($nav['preview']){ ?>/preview<?php } ?>"><?php echo $subpage->name; ?></option>
 									<?php } ?>
 								<?php } ?>
 							<?php } ?>
 						<?php } ?>
 						<?php if(!empty($chapter->pages)){ //Only show if pages ?>
 							<?php foreach($chapter->pages as $mainpage){ ?>
-								<option <?php if($page->comicid == $mainpage->comicid){ ?>selected="selected"<?php } ?> value="<?php echo $mainpage->slug; ?>"><?php echo $mainpage->name; ?></option>
+								<option <?php if($page->comicid == $mainpage->comicid){ ?>selected="selected"<?php } ?> value="<?php echo $mainpage->slug; ?><?php if($nav['preview']){ ?>/preview<?php } ?>"><?php echo $mainpage->name; ?></option>
 							<?php } ?>
 						<?php } ?>
 					<?php } ?>
