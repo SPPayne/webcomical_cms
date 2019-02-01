@@ -1,12 +1,12 @@
-<?php $cnt = 0; ?>
-<?php header("Content-Type: application/rss+xml; charset=UTF-8"); ?>
 <?php echo '<?xml version="1.0" encoding="UTF-8"?>';//Echo otherwise it is interpreted as PHP! ?>
-<rss version="2.0">
+<?php $cnt = 0; ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
 		<title><?php echo $site['site_name']; ?></title>
 		<link><?php echo base_url() . 'feed'; ?></link>
 		<description>New <?php echo $site['site_page_term']; ?>s for the webcomic <?php echo $site['site_name']; ?>. Updates: <?php echo strtolower($site['site_updates_on']); ?></description>
 		<copyright>Copyright (C) <?php echo $site['site_copyright']; ?> <?php echo $site['site_copyright_year']; ?>-<?php echo date('Y'); ?></copyright>
+		<atom:link href="<?php echo base_url(); ?>feed" rel="self" type="application/rss+xml" />
 		<?php if($pages){ ?>
 			<?php foreach($pages as $chapter){ ?>
 				<?php if(!empty($chapter->pages) || !empty($chapter->subchapters)){ //Only show if pages or subchapters ?>

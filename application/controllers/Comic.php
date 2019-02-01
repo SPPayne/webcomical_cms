@@ -713,7 +713,12 @@ class Comic extends CI_Controller {
 		$this->data['pages'] = $this->Comic->fetch_valid_pages_in_order($reverse = FALSE,$active = TRUE);
 		
 		//Load the feed
-		$this->load->view('comic/feed',$this->data);
+		$xml = $this->load->view('comic/feed',$this->data,TRUE);
+		
+		//Output XML
+		header('Content-Type: application/xml; charset=utf-8');
+		echo $xml;
+		return;
 		
 	}
 	
