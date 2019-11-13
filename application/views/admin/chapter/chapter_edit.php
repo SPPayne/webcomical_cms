@@ -17,12 +17,13 @@
 	<?php } ?>
 	<?php $ckeditors = array(); //For collection ?>
 	<?php foreach($fields as $fieldname => $values){ ?>
+		<?php $value = $values['db_field']; //PHP7 is not a big fan of using array vals to point to objects so redeclare here ?>
 		<?php if($values['type'] == "ckeditor"){ //CKeditor fields ?>
 			<div class="form-group">
 				<?php $ckeditors[] = "chapter_" . $fieldname; //Add to CKEditor array ?>
 				<label for="chapter_<?php echo $fieldname; ?>"><?php echo $values['label']; ?>:</label>
 				<textarea name="chapter_<?php echo $fieldname; ?>" id="chapter_<?php echo $fieldname; ?>">
-					<?php echo $chapter->$values['db_field']; ?>
+					<?php echo $chapter->$value; ?>
 				</textarea>
 				<div class="help-block"><?php echo $values['guide']; ?></div>
 			</div>
@@ -43,7 +44,7 @@
 					class="form-control" 
 					id="chapter_<?php echo $fieldname; ?>" 
 					name="chapter_<?php echo $fieldname; ?>" 
-					value="<?php echo $chapter->$values['db_field']; ?>" 
+					value="<?php echo $chapter->$value; ?>" 
 					data-error="Not a valid <?php echo strtolower($fieldname); ?>!" 
 					autocomplete="off" 
 					<?php if($values['required'] == TRUE){ ?>

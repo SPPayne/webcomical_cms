@@ -15,12 +15,13 @@
 <form id="upload_character" role="form" method="POST" data-toggle="validator">
 	<?php $ckeditors = array(); //For collection ?>
 	<?php foreach($fields as $fieldname => $values){ ?>
+		<?php $value = $values['db_field']; //PHP7 is not a big fan of using array vals to point to objects so redeclare here ?>
 		<?php if($values['type'] == "ckeditor"){ //CKeditor fields ?>
 			<div class="form-group">
 				<?php $ckeditors[] = "character_" . $fieldname; //Add to CKEditor array ?>
 				<label for="character_<?php echo $fieldname; ?>"><?php echo $values['label']; ?>:</label>
 				<textarea name="character_<?php echo $fieldname; ?>" id="character_<?php echo $fieldname; ?>">
-					<?php echo $character->$values['db_field']; ?>
+					<?php echo $character->$value; ?>
 				</textarea>
 				<div class="help-block"><?php echo $values['guide']; ?></div>
 			</div>
@@ -32,7 +33,7 @@
 						id="character_<?php echo $fieldname; ?>" 
 						name="character_<?php echo $fieldname; ?>" 
 						value="Y" 
-						<?php if($character->$values['db_field'] == "Y"){ ?>checked<?php } ?> 
+						<?php if($character->$value == "Y"){ ?>checked<?php } ?> 
 					/> <?php echo $values['label']; ?>
 				</label>
 				<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
@@ -55,7 +56,7 @@
 					class="form-control" 
 					id="character_<?php echo $fieldname; ?>" 
 					name="character_<?php echo $fieldname; ?>" 
-					value="<?php echo $character->$values['db_field']; ?>" 
+					value="<?php echo $character->$value; ?>" 
 					data-error="Not a valid <?php echo strtolower($fieldname); ?>!" 
 					autocomplete="off" 
 					<?php if($values['required'] == TRUE){ ?>

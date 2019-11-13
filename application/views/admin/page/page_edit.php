@@ -79,12 +79,13 @@
 	<?php } ?>
 	<?php $ckeditors = $datepickers = array(); //For collection ?>
 	<?php foreach($fields as $fieldname => $values){ ?>
+		<?php $value = $values['db_field']; //PHP7 is not a big fan of using array vals to point to objects so redeclare here ?>
 		<?php if($values['type'] == "ckeditor"){ //CKeditor fields ?>
 			<div class="form-group">
 				<?php $ckeditors[] = "comic_" . $fieldname; //Add to CKEditor array ?>
 				<label for="comic_<?php echo $fieldname; ?>"><?php echo $values['label']; ?>:</label>
 				<textarea name="comic_<?php echo $fieldname; ?>" id="comic_<?php echo $fieldname; ?>">
-					<?php echo $page->$values['db_field']; ?>
+					<?php echo $page->$value; ?>
 				</textarea>
 				<div class="help-block"><?php echo $values['guide']; ?></div>
 			</div>
@@ -101,7 +102,7 @@
 						<?php } ?>
 						size="16" 
 						type="text" 
-						value="<?php echo date('Y-m-d H:i',$page->$values['db_field']); ?>" 
+						value="<?php echo date('Y-m-d H:i',$page->$value); ?>" 
 						readonly 
 					/>
 					<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
@@ -125,7 +126,7 @@
 					class="form-control" 
 					id="comic_<?php echo $fieldname; ?>" 
 					name="comic_<?php echo $fieldname; ?>" 
-					value="<?php echo $page->$values['db_field']; ?>" 
+					value="<?php echo $page->$value; ?>" 
 					data-error="Not a valid <?php echo strtolower($fieldname); ?>!" 
 					autocomplete="off" 
 					<?php if($values['required'] == TRUE){ ?>

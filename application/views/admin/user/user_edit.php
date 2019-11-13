@@ -40,12 +40,13 @@
 	<div id="update_response" class="hidden"></div>
 	<form id="update_user" role="form" method="POST" data-toggle="validator">
 		<?php foreach($fields as $fieldname => $uservalues){ ?>
+			<?php $uservalue = $uservalues['ion_field']; //PHP7 is not a big fan of using array vals to point to objects so redeclare here ?>
 			<div class="form-group has-feedback">
 				<label for="usr_<?php echo $fieldname; ?>"><?php echo $uservalues['label']; ?>:</label>
 				<?php
 					//Field value
 					if($uservalues['ion_field'] != FALSE){
-						$value = $user_edit->$uservalues['ion_field'];
+						$value = $user_edit->$uservalue;
 					} else { 
 						$value = $this->input->post($uservalues['ion_field']);
 					}

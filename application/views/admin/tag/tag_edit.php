@@ -3,6 +3,7 @@
 <div id="create_response" class="hidden"></div>
 <form id="create_tag" role="form" method="POST" data-toggle="validator">
 	<?php foreach($fields as $fieldname => $values){ ?>
+		<?php $value = $values['db_field']; //PHP7 is not a big fan of using array vals to point to objects so redeclare here ?>
 		<div class="form-group has-feedback">
 			<label for="tags_<?php echo $fieldname; ?>"><?php echo $values['label']; ?>:</label>
 			<input
@@ -19,7 +20,7 @@
 				class="form-control" 
 				id="tags_<?php echo $fieldname; ?>" 
 				name="tags_<?php echo $fieldname; ?>" 
-				value="<?php echo $tag->$values['db_field']; ?>" 
+				value="<?php echo $tag->$value; ?>" 
 				data-error="Not a valid <?php echo strtolower($fieldname); ?>!" 
 				autocomplete="off" 
 				<?php if($values['required'] == TRUE){ ?>
