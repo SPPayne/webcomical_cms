@@ -34,7 +34,7 @@ class Logging_model extends CI_Model {
 		
 		//No result
 		if($query->num_rows() == 0){
-			return FALSE;
+			return array();
 		}
 		
 		//Reassign result
@@ -55,7 +55,7 @@ class Logging_model extends CI_Model {
 		
 		//No result
 		if($query->num_rows() == 0){
-			return FALSE;
+			return array();
 		}
 		
 		//Reassign result
@@ -76,7 +76,7 @@ class Logging_model extends CI_Model {
 		
 		//No result
 		if($query->num_rows() == 0){
-			return FALSE;
+			return array();
 		}
 		
 		//Reassign result
