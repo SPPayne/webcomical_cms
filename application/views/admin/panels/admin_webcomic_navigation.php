@@ -40,7 +40,7 @@
 	</div>
 	<hr />
 	<h2>Navigation Button Appearance</h2>
-	<p>Max file size: 5MB. Expected dimensions: 200px x 700px. File type is restricted to .png</p>
+	<p>Max file size: <?php echo ($upload_rules['navigation_buttons']['max_size']/1000); ?>MB. Expected dimensions: <?php echo $upload_rules['navigation_buttons']['max_width']; ?>px x <?php echo $upload_rules['navigation_buttons']['max_height']; ?>px. File types allowed: .<?php echo implode(' .',explode('|',$upload_rules['navigation_buttons']['allowed_types'])); ?></p>
 	<label>Upload a "sprite sheet" of buttons:</label>
 	<?php
 		//File upload button hacked into shape in separate file

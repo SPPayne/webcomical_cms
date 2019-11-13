@@ -1,6 +1,6 @@
 <h1>Edit Character "<?php echo $character->name; ?>"</h1>
 <p>Edit this character below!</p>
-<p>Max file size: 10MB. Max dimensions: 1000px x 1000px. File types allowed: .jpg .png .gif</p>
+<p>Max file size: <?php echo ($upload_rules['profile_img']['max_size']/1000); ?>MB. Max dimensions: <?php echo $upload_rules['profile_img']['max_width']; ?>px x <?php echo $upload_rules['profile_img']['max_height']; ?>px. File types allowed: .<?php echo implode(' .',explode('|',$upload_rules['profile_img']['allowed_types'])); ?></p>
 <label>Upload profile image:</label>
 <?php
 	//File upload button hacked into shape in separate file

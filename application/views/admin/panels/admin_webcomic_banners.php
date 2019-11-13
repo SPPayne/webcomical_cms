@@ -3,7 +3,7 @@
 <p>You can upload or delete webcomic banners using this panel, or mark which banners you do not want showing on the website.</p>
 <p>If there are multiple banners set to show, the site will randomise which banner is shown every time the website loads.</p>
 <p>If no banners are available, the website will show the comic's title in plain text.</p>
-<p>Max file size: 5MB. Max dimensions: 1000px x 1000px. File types allowed: .jpg .png .gif</p>
+<p>Max file size: <?php echo ($upload_rules['banners']['max_size']/1000); ?>MB. Max dimensions: <?php echo $upload_rules['banners']['max_width']; ?>px x <?php echo $upload_rules['banners']['max_height']; ?>px. File types allowed: .<?php echo implode(' .',explode('|',$upload_rules['banners']['allowed_types'])); ?></p>
 <label>Upload banner:</label>
 <?php
 	//File upload button hacked into shape in separate file

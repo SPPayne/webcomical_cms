@@ -36,8 +36,7 @@
 		</div>
 	</nav>
 <?php } ?>
-<p>Max file size: 10MB. Max dimensions: 1000px x 20000px. File types allowed: .jpg .png .gif .swf</p>
-<label>Upload page:</label>
+<p>Max file size: <?php echo ($upload_rules['pages']['max_size']/1000); ?>MB. Max dimensions: <?php echo $upload_rules['pages']['max_width']; ?>px x <?php echo $upload_rules['pages']['max_height']; ?>px. File types allowed: .<?php echo implode(' .',explode('|',$upload_rules['pages']['allowed_types'])); ?></p><label>Upload page:</label>
 <?php
 	//File upload button hacked into shape in separate file
 	//Ref: http://www.abeautifulsite.net/whipping-file-inputs-into-shape-with-bootstrap-3/

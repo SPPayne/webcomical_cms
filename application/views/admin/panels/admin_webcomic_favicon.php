@@ -2,7 +2,7 @@
 <p>A "favicon" or "favourites icon" is a small image designed to represent your website - it normally shows on a tab in front of the page title and can help users identify bookmarks or tabs related to your webcomic.</p>
 <p>Favicons can be saved in .ico or .png format and there are a number of "favicon generator" websites that can aid you in creating a favicon.</p>
 <p>You can upload your favicon using the upload bar below.</p>
-<p>Max file size: 1MB. Max dimensions: 32px x 32px (recommended size is 16px x 16px). File types allowed: .ico .png</p>
+<p>Max file size: <?php echo ($upload_rules['favicon']['max_size']/1000); ?>MB. Max dimensions: <?php echo $upload_rules['favicon']['max_width']; ?>px x <?php echo $upload_rules['favicon']['max_height']; ?>px (recommended size is 16px x 16px). File types allowed: .<?php echo implode(' .',explode('|',$upload_rules['favicon']['allowed_types'])); ?></p>
 <label>Upload favicon:</label>
 <?php
 	//File upload button hacked into shape in separate file
