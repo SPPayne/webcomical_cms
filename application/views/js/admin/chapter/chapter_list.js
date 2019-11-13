@@ -77,13 +77,13 @@ $(document).ready(function(){
 				if(response.indexOf("up") != -1){
 					
 					//Append to previous row
-					$(row).next('tr').after('<tr>'+row.html()+'</tr>');
-				
+					$(row).prev('tr').before('<tr>'+row.html()+'</tr>');
+					
 				//Down
 				} else {
 					
 					//Append to previous row
-					$(row).prev('tr').before('<tr>'+row.html()+'</tr>');
+					$(row).next('tr').after('<tr>'+row.html()+'</tr>');
 					
 				}
 				
