@@ -907,7 +907,7 @@
 					<li>search.html</li>
 					<li>tags.html</li>
 				</ul>
-				<span class="small">Note: only displays there are any comic pages on the webcomic.</span>
+				<span class="small">Note: only displays if there are any comic pages on the webcomic.</span>
 			</td>
 			<td>
 				Presents a link to the "archive" page (/archive). Will only display if there are any pages!
@@ -926,7 +926,7 @@
 					<li>search.html</li>
 					<li>tags.html</li>
 				</ul>
-				<span class="small">Note: only displays there are any characters on the webcomic.</span>
+				<span class="small">Note: only displays if there are any characters on the webcomic.</span>
 			</td>
 			<td>
 				Presents a link to the "cast" page (/character_profiles). Will only display if there are any characters!
