@@ -19,9 +19,9 @@
 <script src="<?php echo $assets['webcomical']; ?>"></script>
 
 <!-- Default comic CSS -->
-<link href="/assets/css/comic.css" rel="stylesheet" />
+<link href="<?php echo base_url(); ?>assets/css/comic.css" rel="stylesheet" />
 
 <?php if($site['site_theme'] != "default"){ ?>
 	<!-- Theme custom CSS -->
-	<link href="/assets/templates/<?php echo $site['site_theme']; ?>/style.css" rel="stylesheet" />
+	<link href="<?php echo base_url(); ?>assets/templates/<?php echo $site['site_theme']; ?>/style.css" rel="stylesheet" />
 <?php } ?>
