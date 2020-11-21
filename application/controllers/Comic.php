@@ -788,6 +788,16 @@ class Comic extends CI_Controller {
 			//If we get this far the result of validate() is a nice array of gubbins
 			$gubbins = $result;
 			
+			//Is this getting written to a subdirectory? In which case we need to mod the first line of .htaccess to be relative to the subdirectory...
+			$test = parse_url($gubbins['web_setup']['url']);
+			if(isset($test['path'])){
+				$error = $this->Installer->write_htaccess_root($test['path']);
+				if($error != FALSE){
+					$this->_install_error($error,$data);
+					return;
+				}
+			}
+			
 			//Attempt to write to timezone file
 			//Just a note for anyone wondering why I'm not updating the config item in CI, it's because changing that value did
 			//sod all for me? This writes to timezone.php which is then included in index.php

@@ -22,6 +22,7 @@ class Install_model extends CI_Model {
 	 * FUNC_WBU 		- Writes some contents to config file, including base URL
 	 * FUNC_DBCONFIG 	- Function to write the db config file
 	 * FUNC_RESDBCONF 	- Resets the database config to its "pre-updated" state
+	 * FUNC_WHTRT 		- Updates the .htaccess if the root is a subdirectory
 	 * 
 	 * DESTROY:
 	 *
@@ -424,6 +425,47 @@ class Install_model extends CI_Model {
 		
 		//Return the config file to proper permissions
 		@chmod($config_file,0644);
+		
+		//No problems!
+		return FALSE;
+		
+	}
+	
+	//FUNC_WHTRT - Updates the .htaccess if the root is a subdirectory
+	public function write_htaccess_root($str){
+		
+		//Config paths
+		$htaccess_file = './.htaccess';
+
+		//File not writable, attempt to chmod
+		if(!is_writable($htaccess_file)){
+			@chmod($htaccess_file,0777);
+		}
+		
+		//If it's still not writable, throw an error!
+		if(!is_writable($htaccess_file)){
+			return "File is not writable at " . trim($htaccess_file,'.');
+		}
+		
+		//Open the file
+		$htaccess = file_get_contents($htaccess_file);
+		if(!$htaccess){
+			return "Cannot fetch file from " . trim($htaccess_file,'.') . " - file may be missing!";
+		}
+
+		//Update the row
+		$htaccess = str_replace("RewriteBase /","RewriteBase " . $str . "/",$htaccess);
+
+		//Write the new database.php file
+		$handle = fopen($htaccess_file,'w+');
+		
+		//Write the file
+		if(!fwrite($handle,$htaccess)){
+			return "File cannot be updated at " . trim($htaccess_file,'.');
+		}
+		
+		//Return the config file to proper permissions
+		@chmod($htaccess_file,0644);
 		
 		//No problems!
 		return FALSE;
