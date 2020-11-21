@@ -200,13 +200,10 @@ class Comic extends CI_Controller {
 		$filters = array();
 		
 		//Set page filters
+		$filters['verified'] = TRUE;
 		if(!$this->ion_auth->logged_in()){ //Site visitor
-			$filters['verified'] = TRUE;
 			$nav_flag = TRUE;
 		} else { //Admin user logged in, bypasses need for page to be published for preview purposes
-			if($preview == FALSE){
-				$filters['verified'] = TRUE;
-			}
 			$nav_flag = FALSE; //We use this to represent whether the "verified" flag is set in nav formation otherwise it throws a wobbly
 		}
 		
