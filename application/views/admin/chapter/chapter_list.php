@@ -1,8 +1,8 @@
 <h1>Manage Comic Chapters</h1>
 <p>Create, delete, update and reorganise both chapters and subchapters on this page.</p>
-<p><a href="/admin/create_chapter/chapter">Click here to add a new chapter</a>, or <a href="/admin/create_chapter/subchapter">click here to add a new subchapter</a>!</p>
+<p><a href="<?php echo base_url(); ?>admin/create_chapter/chapter">Click here to add a new chapter</a>, or <a href="<?php echo base_url(); ?>admin/create_chapter/subchapter">click here to add a new subchapter</a>!</p>
 <?php if(!$chapters){ ?>
-	<p>No chapters exist! <a href="/admin/create_chapter/chapter">Click here to create your first chapter!</a></p>
+	<p>No chapters exist! <a href="<?php echo base_url(); ?>admin/create_chapter/chapter">Click here to create your first chapter!</a></p>
 <?php } else { ?>
 	<div id="update_response" class="hidden"></div>
 	<div class="table-responsive">
@@ -16,10 +16,10 @@
 				<tr>
 					<td><?php echo $chapter->name; ?></td>
 					<td class="text-center">
-						<a title="Move chapter up" class="chaptermove-up" href="/admin/move_chapter/<?php echo $chapter->chapterid; ?>/up"><span class="glyphicon glyphicon-arrow-up"></span></a>&nbsp;&nbsp;
-						<a title="Move chapter down" class="chaptermove-down" href="/admin/move_chapter/<?php echo $chapter->chapterid; ?>/down"><span class="glyphicon glyphicon-arrow-down"></span></a>&nbsp;&nbsp;
-						<a title="Edit chapter" href="/admin/create_chapter/<?php echo $chapter->type; ?>/<?php echo $chapter->chapterid; ?>"><span class="glyphicon glyphicon-pencil"></span></a>&nbsp;&nbsp;
-						<a title="Delete chapter" class="delete-button" href="/admin/delete_chapter/<?php echo $chapter->chapterid; ?>"><span class="glyphicon glyphicon-trash"></span></a>
+						<a title="Move chapter up" class="chaptermove-up" href="<?php echo base_url(); ?>admin/move_chapter/<?php echo $chapter->chapterid; ?>/up"><span class="glyphicon glyphicon-arrow-up"></span></a>&nbsp;&nbsp;
+						<a title="Move chapter down" class="chaptermove-down" href="<?php echo base_url(); ?>admin/move_chapter/<?php echo $chapter->chapterid; ?>/down"><span class="glyphicon glyphicon-arrow-down"></span></a>&nbsp;&nbsp;
+						<a title="Edit chapter" href="<?php echo base_url(); ?>admin/create_chapter/<?php echo $chapter->type; ?>/<?php echo $chapter->chapterid; ?>"><span class="glyphicon glyphicon-pencil"></span></a>&nbsp;&nbsp;
+						<a title="Delete chapter" class="delete-button" href="<?php echo base_url(); ?>admin/delete_chapter/<?php echo $chapter->chapterid; ?>"><span class="glyphicon glyphicon-trash"></span></a>
 					</td>
 					<td>
 						<?php if(!isset($chapter->subchapters)){ ?>
@@ -32,11 +32,11 @@
 										<td><?php echo $subchapter->name; ?></td>
 										<td class="text-center">
 											<?php if(count($chapter->subchapters) > 1){ //Plz note that "up" and "down" are inverted for subchapters! ?>
-												<a title="Move subchapter up" class="subchaptermove-up" href="/admin/move_chapter/<?php echo $subchapter->chapterid; ?>/up"><span class="glyphicon glyphicon-arrow-up"></span></a>&nbsp;&nbsp;
-												<a title="Move subchapter down" class="subchaptermove-down" href="/admin/move_chapter/<?php echo $subchapter->chapterid; ?>/down"><span class="glyphicon glyphicon-arrow-down"></span></a>&nbsp;&nbsp;
+												<a title="Move subchapter up" class="subchaptermove-up" href="<?php echo base_url(); ?>admin/move_chapter/<?php echo $subchapter->chapterid; ?>/up"><span class="glyphicon glyphicon-arrow-up"></span></a>&nbsp;&nbsp;
+												<a title="Move subchapter down" class="subchaptermove-down" href="<?php echo base_url(); ?>admin/move_chapter/<?php echo $subchapter->chapterid; ?>/down"><span class="glyphicon glyphicon-arrow-down"></span></a>&nbsp;&nbsp;
 											<?php }?>
-											<a title="Edit subchapter" href="/admin/create_chapter/<?php echo $subchapter->type; ?>/<?php echo $subchapter->chapterid; ?>"><span class="glyphicon glyphicon-pencil"></span></a>&nbsp;&nbsp;
-											<a title="Delete subchapter" class="delete-button" href="/admin/delete_chapter/<?php echo $subchapter->chapterid; ?>"><span class="glyphicon glyphicon-trash"></span></a>
+											<a title="Edit subchapter" href="<?php echo base_url(); ?>admin/create_chapter/<?php echo $subchapter->type; ?>/<?php echo $subchapter->chapterid; ?>"><span class="glyphicon glyphicon-pencil"></span></a>&nbsp;&nbsp;
+											<a title="Delete subchapter" class="delete-button" href="<?php echo base_url(); ?>admin/delete_chapter/<?php echo $subchapter->chapterid; ?>"><span class="glyphicon glyphicon-trash"></span></a>
 										</td>
 									<?php } ?>
 								</table>

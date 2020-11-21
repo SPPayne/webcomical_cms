@@ -18,7 +18,7 @@ $(document).ready(function(){
 			//AJAX request
 			$.ajax({
 				type        : $('#upload_chapter').attr('method'),
-				url         : '/admin/update_chapter/'+chapterid,
+				url         : base_url+'admin/update_chapter/'+chapterid,
 				data        : $('#upload_chapter').serialize(),
 				success		: function(response){ handle_response(response); },
 				error		: function(response){ handle_error('Server could not complete the request. Please check that the website is available and try again.'); }
