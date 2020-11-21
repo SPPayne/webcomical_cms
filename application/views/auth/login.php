@@ -3,10 +3,10 @@
 		<div class="col-sm-6 col-md-4 col-md-offset-4">
 			<div class="account-wall">
 				<?php if($settings['site_webby'] == "Yes"){ ?>
-					<img style="max-width:50%" class="center-block img-responsive" alt="Webby the Clown Spider" title="It's Webby the terrifying and slightly annoying webcomic mascot! You can turn him off if you want to!" src="/assets/icons/webcomical.png" />
+					<img style="max-width:50%" class="center-block img-responsive" alt="Webby the Clown Spider" title="It's Webby the terrifying and slightly annoying webcomic mascot! You can turn him off if you want to!" src="<?php echo base_url(); ?>assets/icons/webcomical.png" />
 					<h1 class="text-center">Login</h1>
 				<?php } else { ?>
-					<h1 class="text-center">Login to <img style="height:25px;" alt="<?php echo $this->config->item('app_name','webcomic'); ?>" title="<?php echo $this->config->item('app_name','webcomic'); ?>" src="/assets/icons/webcomical_txt.png" /> </h1>
+					<h1 class="text-center">Login to <img style="height:25px;" alt="<?php echo $this->config->item('app_name','webcomic'); ?>" title="<?php echo $this->config->item('app_name','webcomic'); ?>" src="<?php echo base_url(); ?>assets/icons/webcomical_txt.png" /> </h1>
 				<?php } ?>
 				<p><?php echo lang('login_subheading');?></p>
 				<?php if($message){ ?>

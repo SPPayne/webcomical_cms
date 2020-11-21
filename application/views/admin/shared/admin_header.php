@@ -50,11 +50,11 @@
 	<?php } ?>
 	
 	<!-- Admin Styles -->
-	<link href="/assets/css/admin.css" rel="stylesheet" />
+	<link href="<?php echo base_url(); ?>assets/css/admin.css" rel="stylesheet" />
 	
 	<?php if(isset($settings)){ ?>
 		<!-- Favicon -->
-		<link rel="shortcut icon" href="/assets/icons/favicon<?php if($settings['site_webby'] == "Yes"){ ?>_webby<?php } ?>.ico" type="image/x-icon" />
+		<link rel="shortcut icon" href="<?php echo base_url(); ?>assets/icons/favicon<?php if($settings['site_webby'] == "Yes"){ ?>_webby<?php } ?>.ico" type="image/x-icon" />
 	<?php } ?>
 	
 </head>

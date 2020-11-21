@@ -13,7 +13,7 @@
 	<div class="row">
 		<div class="col-sm-6 col-md-4 col-md-offset-4">
 			<div class="account-wall">
-				<img style="max-width:50%" class="center-block img-responsive" alt="Webby the Clown Spider" title="It's Webby the terrifying and slightly annoying webcomic mascot! He's the website mascot so unsettling that he even gives Clippy nightmares!" src="/assets/icons/webcomical.png" />
+				<img style="max-width:50%" class="center-block img-responsive" alt="Webby the Clown Spider" title="It's Webby the terrifying and slightly annoying webcomic mascot! He's the website mascot so unsettling that he even gives Clippy nightmares!" src="./assets/icons/webcomical.png" />
 				<h1 class="text-center">Install WebComical</h1>
 				<form class="form-signin" id="install_form" role="form" method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
 					<div class="form-group has-feedback">

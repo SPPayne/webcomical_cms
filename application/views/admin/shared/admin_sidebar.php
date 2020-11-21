@@ -7,7 +7,7 @@
 ?>
 <div class="column col-sm-2 col-xs-1 sidebar-offcanvas" id="sidebar">
 	<?php if($settings['site_webby'] == "Yes"){ ?>
-		<img class="center-block img-responsive" alt="Webby the Clown Spider" title="It's Webby the terrifying and slightly annoying <?php echo $this->config->item('app_name','webcomic'); ?> mascot!" src="/assets/icons/webcomical.png" />
+		<img class="center-block img-responsive" alt="Webby the Clown Spider" title="It's Webby the terrifying and slightly annoying <?php echo $this->config->item('app_name','webcomic'); ?> mascot!" src="<?php echo base_url(); ?>assets/icons/webcomical.png" />
 	<?php } ?>
 	<ul class="nav" id="menu">
 		<li>
@@ -17,7 +17,7 @@
 			</a>
 		</li>
 		<li>
-			<a title="View Site" href="/">
+			<a title="View Site" href="<?php echo base_url(); ?>">
 				<span class="glyphicon glyphicon-new-window"></span>&nbsp;
 				<span class="collapse <?php echo $sidebar; ?>">View Site</span>
 			</a>
@@ -29,19 +29,19 @@
 			</a>
 			<ul class="nav nav-stacked left-submenu <?php if(!stristr(uri_string(),'user') && !stristr(uri_string(),'change_password')){ ?>collapse<?php } else { ?>in<?php } ?>" id="admin-user">
 				<li>
-					<a title="Create a new user" <?php if(stristr(uri_string(),'create_user')){ ?>class="active"<?php } ?> href="/admin/create_user/">
+					<a title="Create a new user" <?php if(stristr(uri_string(),'create_user')){ ?>class="active"<?php } ?> href="<?php echo base_url(); ?>admin/create_user/">
 						<span class="glyphicon glyphicon-plus"></span> 
 						<span class="collapse <?php echo $sidebar; ?>">Create a new user</span>
 					</a>
 				</li>
 				<li>
-					<a title="Edit your profile" <?php if(stristr(uri_string(),'manage_users') && $this->uri->segment(3) == $user->id){ ?>class="active"<?php } ?> href="/admin/manage_users/<?php echo $user->id; ?>">
+					<a title="Edit your profile" <?php if(stristr(uri_string(),'manage_users') && $this->uri->segment(3) == $user->id){ ?>class="active"<?php } ?> href="<?php echo base_url(); ?>admin/manage_users/<?php echo $user->id; ?>">
 						<span class="glyphicon glyphicon-pencil"></span> 
 						<span class="collapse <?php echo $sidebar; ?>">Edit your profile</span>
 					</a>
 				</li>
 				<li>
-					<a title="Manage users" <?php if(stristr(uri_string(),'manage_users') && !$this->uri->segment(3)){ ?>class="active"<?php } ?> href="/admin/manage_users/">
+					<a title="Manage users" <?php if(stristr(uri_string(),'manage_users') && !$this->uri->segment(3)){ ?>class="active"<?php } ?> href="<?php echo base_url(); ?>admin/manage_users/">
 						<span class="glyphicon glyphicon-sunglasses"></span> 
 						<span class="collapse <?php echo $sidebar; ?>">Manage users</span>
 					</a>
@@ -55,31 +55,31 @@
 			</a>
 			<ul class="nav nav-stacked left-submenu <?php if(!stristr(uri_string(),'webcomic')){ ?>collapse<?php } else { ?>in<?php } ?>" id="admin-appearance">
 				<li>
-					<a title="Settings" <?php if(stristr(uri_string(),'webcomic_settings')){ ?>class="active"<?php } ?> href="/admin/webcomic_settings/">
+					<a title="Settings" <?php if(stristr(uri_string(),'webcomic_settings')){ ?>class="active"<?php } ?> href="<?php echo base_url(); ?>admin/webcomic_settings/">
 						<span class="glyphicon glyphicon-list"></span>
 						<span class="collapse <?php echo $sidebar; ?>">Settings</span>
 					</a>
 				</li>
 				<li>
-					<a title="Template Themes" <?php if(stristr(uri_string(),'webcomic_appearance')){ ?>class="active"<?php } ?> href="/admin/webcomic_appearance/">
+					<a title="Template Themes" <?php if(stristr(uri_string(),'webcomic_appearance')){ ?>class="active"<?php } ?> href="<?php echo base_url(); ?>admin/webcomic_appearance/">
 						<span class="glyphicon glyphicon-picture"></span>
 						<span class="collapse <?php echo $sidebar; ?>">Template Themes</span>
 					</a>
 				</li>
 				<li>
-					<a title="Banners" <?php if(stristr(uri_string(),'webcomic_banners')){ ?>class="active"<?php } ?> href="/admin/webcomic_banners/">
+					<a title="Banners" <?php if(stristr(uri_string(),'webcomic_banners')){ ?>class="active"<?php } ?> href="<?php echo base_url(); ?>admin/webcomic_banners/">
 						<span class="glyphicon glyphicon-modal-window"></span>
 						<span class="collapse <?php echo $sidebar; ?>">Banners</span>
 					</a>
 				</li>
 				<li>
-					<a title="Navigation" <?php if(stristr(uri_string(),'webcomic_navigation')){ ?>class="active"<?php } ?> href="/admin/webcomic_navigation/">
+					<a title="Navigation" <?php if(stristr(uri_string(),'webcomic_navigation')){ ?>class="active"<?php } ?> href="<?php echo base_url(); ?>admin/webcomic_navigation/">
 						<span class="glyphicon glyphicon-move"></span>
 						<span class="collapse <?php echo $sidebar; ?>">Navigation</span>
 					</a>
 				</li>
 				<li>
-					<a title="Favicon" <?php if(stristr(uri_string(),'webcomic_favicon')){ ?>class="active"<?php } ?> href="/admin/webcomic_favicon/">
+					<a title="Favicon" <?php if(stristr(uri_string(),'webcomic_favicon')){ ?>class="active"<?php } ?> href="<?php echo base_url(); ?>admin/webcomic_favicon/">
 						<span class="glyphicon glyphicon-star"></span>
 						<span class="collapse <?php echo $sidebar; ?>">Favicon</span>
 					</a>
@@ -93,19 +93,19 @@
 			</a>
 			<ul class="nav nav-stacked left-submenu <?php if(!stristr(uri_string(),'page')){ ?>collapse<?php } else { ?>in<?php } ?>" id="admin-pages">
 				<li>
-					<a title="Edit 'about' page" <?php if(stristr(uri_string(),'about_page') && !$this->uri->segment(3)){ ?>class="active"<?php } ?> href="/admin/about_page/">
+					<a title="Edit 'about' page" <?php if(stristr(uri_string(),'about_page') && !$this->uri->segment(3)){ ?>class="active"<?php } ?> href="<?php echo base_url(); ?>admin/about_page/">
 						<span class="glyphicon glyphicon-info-sign"></span> 
 						<span class="collapse <?php echo $sidebar; ?>">Edit 'About' Page</span>
 					</a>
 				</li>
 				<li>
-					<a title="Add a new comic page" <?php if(stristr(uri_string(),'create_page') && !$this->uri->segment(3)){ ?>class="active"<?php } ?> href="/admin/create_page/">
+					<a title="Add a new comic page" <?php if(stristr(uri_string(),'create_page') && !$this->uri->segment(3)){ ?>class="active"<?php } ?> href="<?php echo base_url(); ?>admin/create_page/">
 						<span class="glyphicon glyphicon-plus"></span> 
 						<span class="collapse <?php echo $sidebar; ?>">Add a new comic page</span>
 					</a>
 				</li>
 				<li>
-					<a title="Manage existing comic pages" <?php if(stristr(uri_string(),'manage_pages')){ ?>class="active"<?php } ?> href="/admin/manage_pages">
+					<a title="Manage existing comic pages" <?php if(stristr(uri_string(),'manage_pages')){ ?>class="active"<?php } ?> href="<?php echo base_url(); ?>admin/manage_pages">
 						<span class="glyphicon glyphicon-pencil"></span> 
 						<span class="collapse <?php echo $sidebar; ?>">Manage existing comic pages</span>
 					</a>
@@ -119,19 +119,19 @@
 			</a>
 			<ul class="nav nav-stacked left-submenu <?php if(!stristr(uri_string(),'chapter')){ ?>collapse<?php } else { ?>in<?php } ?>" id="admin-chapters">
 				<li>
-					<a title="Add a new comic chapter" <?php if(stristr(uri_string(),'create_chapter/chapter') && !$this->uri->segment(4)){ ?>class="active"<?php } ?> href="/admin/create_chapter/chapter">
+					<a title="Add a new comic chapter" <?php if(stristr(uri_string(),'create_chapter/chapter') && !$this->uri->segment(4)){ ?>class="active"<?php } ?> href="<?php echo base_url(); ?>admin/create_chapter/chapter">
 						<span class="glyphicon glyphicon-align-justify"></span> 
 						<span class="collapse <?php echo $sidebar; ?>">Add a new comic chapter</span>
 					</a>
 				</li>
 				<li>
-					<a title="Add a new comic subchapter" <?php if(stristr(uri_string(),'create_chapter/subchapter')){ ?>class="active"<?php } ?> href="/admin/create_chapter/subchapter">
+					<a title="Add a new comic subchapter" <?php if(stristr(uri_string(),'create_chapter/subchapter')){ ?>class="active"<?php } ?> href="<?php echo base_url(); ?>admin/create_chapter/subchapter">
 						<span class="glyphicon glyphicon-align-left"></span> 
 						<span class="collapse <?php echo $sidebar; ?>">Add a new comic subchapter</span>
 					</a>
 				</li>
 				<li>
-					<a title="Manage comic chapters" <?php if(stristr(uri_string(),'manage_chapters')){ ?>class="active"<?php } ?> href="/admin/manage_chapters/">
+					<a title="Manage comic chapters" <?php if(stristr(uri_string(),'manage_chapters')){ ?>class="active"<?php } ?> href="<?php echo base_url(); ?>admin/manage_chapters/">
 						<span class="glyphicon glyphicon-pencil"></span> 
 						<span class="collapse <?php echo $sidebar; ?>">Manage comic chapters</span>
 					</a>
@@ -145,25 +145,25 @@
 			</a>
 			<ul class="nav nav-stacked left-submenu <?php if(!stristr(uri_string(),'character') && !stristr(uri_string(),'tag')){ ?>collapse<?php } else { ?>in<?php } ?>" id="admin-characters">
 				<li>
-					<a title="Add a new character profile" <?php if(stristr(uri_string(),'create_character') && !$this->uri->segment(4)){ ?>class="active"<?php } ?> href="/admin/create_character/">
+					<a title="Add a new character profile" <?php if(stristr(uri_string(),'create_character') && !$this->uri->segment(4)){ ?>class="active"<?php } ?> href="<?php echo base_url(); ?>admin/create_character/">
 						<span class="glyphicon glyphicon-user"></span> 
 						<span class="collapse <?php echo $sidebar; ?>">Add a new character</span>
 					</a>
 				</li>
 				<li>
-					<a title="Manage comic characters" <?php if(stristr(uri_string(),'manage_characters')){ ?>class="active"<?php } ?> href="/admin/manage_characters/">
+					<a title="Manage comic characters" <?php if(stristr(uri_string(),'manage_characters')){ ?>class="active"<?php } ?> href="<?php echo base_url(); ?>admin/manage_characters/">
 						<span class="glyphicon glyphicon-pencil"></span> 
 						<span class="collapse <?php echo $sidebar; ?>">Manage comic characters</span>
 					</a>
 				</li>
 				<li>
-					<a title="Add a new tag" <?php if(stristr(uri_string(),'create_tag') && !$this->uri->segment(4)){ ?>class="active"<?php } ?> href="/admin/create_tag/">
+					<a title="Add a new tag" <?php if(stristr(uri_string(),'create_tag') && !$this->uri->segment(4)){ ?>class="active"<?php } ?> href="<?php echo base_url(); ?>admin/create_tag/">
 						<span class="glyphicon glyphicon-tag"></span> 
 						<span class="collapse <?php echo $sidebar; ?>">Add a new tag</span>
 					</a>
 				</li>
 				<li>
-					<a title="Manage comic tags" <?php if(stristr(uri_string(),'manage_tags')){ ?>class="active"<?php } ?> href="/admin/manage_tags/">
+					<a title="Manage comic tags" <?php if(stristr(uri_string(),'manage_tags')){ ?>class="active"<?php } ?> href="<?php echo base_url(); ?>admin/manage_tags/">
 						<span class="glyphicon glyphicon-tags"></span> 
 						<span class="collapse <?php echo $sidebar; ?>">Manage comic tags</span>
 					</a>
@@ -177,13 +177,13 @@
 			</a>
 			<ul class="nav nav-stacked left-submenu <?php if(!stristr(uri_string(),'redirect')){ ?>collapse<?php } else { ?>in<?php } ?>" id="admin-redirects">
 				<li>
-					<a title="Add a new redirect" <?php if(stristr(uri_string(),'create_redirect') && !$this->uri->segment(4)){ ?>class="active"<?php } ?> href="/admin/create_redirect/">
+					<a title="Add a new redirect" <?php if(stristr(uri_string(),'create_redirect') && !$this->uri->segment(4)){ ?>class="active"<?php } ?> href="<?php echo base_url(); ?>admin/create_redirect/">
 						<span class="glyphicon glyphicon-plus"></span> 
 						<span class="collapse <?php echo $sidebar; ?>">Add a new redirect</span>
 					</a>
 				</li>
 				<li>
-					<a title="Manage redirects" <?php if(stristr(uri_string(),'manage_redirects')){ ?>class="active"<?php } ?> href="/admin/manage_redirects/">
+					<a title="Manage redirects" <?php if(stristr(uri_string(),'manage_redirects')){ ?>class="active"<?php } ?> href="<?php echo base_url(); ?>admin/manage_redirects/">
 						<span class="glyphicon glyphicon-pencil"></span> 
 						<span class="collapse <?php echo $sidebar; ?>">Manage redirects</span>
 					</a>
@@ -191,19 +191,19 @@
 			</ul>
 		</li>
 		<li>
-			<a title="User Manual" <?php if(stristr(uri_string(),'manual')){ ?>class="active"<?php } ?> href="/admin/manual">
+			<a title="User Manual" <?php if(stristr(uri_string(),'manual')){ ?>class="active"<?php } ?> href="<?php echo base_url(); ?>admin/manual">
 				<span class="glyphicon glyphicon-book"></span>&nbsp;
 				<span class="collapse <?php echo $sidebar; ?>">User Manual
 			</a>
 		</li>
 		<li>
-			<a title="User Manual" <?php if(!$this->uri->segment(2)){ ?>class="active"<?php } ?> href="/admin">
+			<a title="User Manual" <?php if(!$this->uri->segment(2)){ ?>class="active"<?php } ?> href="<?php echo base_url(); ?>admin">
 				<span class="glyphicon glyphicon-stats"></span>&nbsp;
 				<span class="collapse <?php echo $sidebar; ?>">Visitor Stats
 			</a>
 		</li>
 		<li>
-			<a title="Logout" href="/auth/logout">
+			<a title="Logout" href="<?php echo base_url(); ?>auth/logout">
 				<span class="glyphicon glyphicon-log-out"></span>&nbsp;
 				<span class="collapse <?php echo $sidebar; ?>">Logout
 			</a>
