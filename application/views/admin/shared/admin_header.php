@@ -69,6 +69,9 @@
 			}
 		</style>
 	</noscript>
+	<script type="text/javascript">
+		var base_url = "<?php echo base_url(); ?>";
+	</script>
 	<?php if(!stristr($this->uri->uri_string(),'auth') && !isset($install)){ //Not on login or install... ?>
 		<?php $this->load->view('admin/shared/admin_modal'); //General purpose modal ?>
 		<div class="row row-offcanvas row-offcanvas-left <?php if($user->admin_sidebar == "CLOSED"){ ?>active<?php } ?>">
