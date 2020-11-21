@@ -888,6 +888,15 @@ class Comic extends CI_Controller {
 		//Set assets
 		$data['assets'] = $this->config->item('assets','webcomic');
 		$data['assets']['css'][] = '/assets/css/auth.css';
+		foreach($data['assets'] as $key => $value){ //If we don't do it relevant to current, assets won't load properly if installing in a subdirectory!
+			if(is_array($value)){
+				foreach($value as $subkey => $subvalue){
+					$data['assets'][$key][$subkey] = './' . $subvalue;
+				}
+			} else {
+				$data['assets'][$key] = './' . $value;
+			}
+		}
 		
 		//Some items for user creation
 		$data['fields'] = $this->config->item('user','webcomic');

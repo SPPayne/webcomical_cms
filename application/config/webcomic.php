@@ -34,16 +34,16 @@ $config['disable_admin'] 	= FALSE; //If you don't intend to ever update the comi
 | Where various third-party web assets are stored
 | If you don't wish to host the asset locally then you can replace the filepath with a web URI e.g. to Google hosted jQuery, etc.
 */
-$config['assets']['jquery'] 			= "/assets/web/jquery-2.2.3.min.js"; 										//Local
-//$config['assets']['jquery'] 			= "http://code.jquery.com/jquery-latest.min.js"; 							//Hosted
-$config['assets']['bootstrap_js'] 		= "/assets/web/bootstrap/js/bootstrap.min.js"; 								//Currently version 3.3.6
-$config['assets']['bootstrap_css'] 		= "/assets/web/bootstrap/css/bootstrap.min.css"; 							//Theme provided by https://bootswatch.com/ ("Spacelab")
-$config['assets']['datepicker_js'] 		= "/assets/web/bootstrap-datepicker/js/bootstrap-datetimepicker.min.js"; 	//http://www.malot.fr/bootstrap-datetimepicker
-$config['assets']['datepicker_css'] 	= "/assets/web/bootstrap-datepicker/css/bootstrap-datetimepicker.min.css";
-$config['assets']['form_validation'] 	= "/assets/web/validator.js"; 												//Github repo: https://github.com/1000hz/bootstrap-validator
-$config['assets']['ckeditor'] 			= "/assets/web/ckeditor/ckeditor.js"; 										//Currently "standard" version 4.5.8 - note that config.js has been modified!
-$config['assets']['mobile'] 			= "/assets/web/jquery.touchSwipe.min.js";									//Adds mobile swipe features, current version is 1.6, website: https://github.com/mattbryson/TouchSwipe-Jquery-Plugin
-$config['assets']['webcomical'] 		= "/assets/web/webcomical.js";												//Sean's code! Bits and pieces for the comic view
+$config['assets']['jquery'] 			= base_url() . "assets/web/jquery-2.2.3.min.js"; 										//Local
+//$config['assets']['jquery'] 			= "http://code.jquery.com/jquery-latest.min.js"; 										//Hosted
+$config['assets']['bootstrap_js'] 		= base_url() . "assets/web/bootstrap/js/bootstrap.min.js"; 							//Currently version 3.3.6
+$config['assets']['bootstrap_css'] 		= base_url() . "assets/web/bootstrap/css/bootstrap.min.css"; 							//Theme provided by https://bootswatch.com/ ("Spacelab")
+$config['assets']['datepicker_js'] 		= base_url() . "assets/web/bootstrap-datepicker/js/bootstrap-datetimepicker.min.js"; 	//http://www.malot.fr/bootstrap-datetimepicker
+$config['assets']['datepicker_css'] 	= base_url() . "assets/web/bootstrap-datepicker/css/bootstrap-datetimepicker.min.css";
+$config['assets']['form_validation'] 	= base_url() . "assets/web/validator.js"; 												//Github repo: https://github.com/1000hz/bootstrap-validator
+$config['assets']['ckeditor'] 			= base_url() . "assets/web/ckeditor/ckeditor.js"; 										//Currently "standard" version 4.5.8 - note that config.js has been modified!
+$config['assets']['mobile'] 			= base_url() . "assets/web/jquery.touchSwipe.min.js";									//Adds mobile swipe features, current version is 1.6, website: https://github.com/mattbryson/TouchSwipe-Jquery-Plugin
+$config['assets']['webcomical'] 		= base_url() . "assets/web/webcomical.js";												//Sean's code! Bits and pieces for the comic view
 
 /*
 | -------------------------------------------------------------------------
@@ -52,12 +52,12 @@ $config['assets']['webcomical'] 		= "/assets/web/webcomical.js";												//Se
 | Same as above but output to every page - add to below to add to every page!
 */
 $config['assets']['js'] = array(
-	"/assets/web/jasny-bootstrap/js/jasny-bootstrap.min.js", 	//Adds Bootstrap features, current version is 3.1.3, website: http://www.jasny.net/bootstrap/
-	"/assets/web/bootstrap-toggle/js/bootstrap-toggle.min.js"	//http://www.bootstraptoggle.com/
+	base_url() . "assets/web/jasny-bootstrap/js/jasny-bootstrap.min.js", 	//Adds Bootstrap features, current version is 3.1.3, website: http://www.jasny.net/bootstrap/
+	base_url() . "assets/web/bootstrap-toggle/js/bootstrap-toggle.min.js"	//http://www.bootstraptoggle.com/
 );
 $config['assets']['css'] = array(
-	"/assets/web/jasny-bootstrap/css/jasny-bootstrap.min.css",
-	"/assets/web/bootstrap-toggle/css/bootstrap-toggle.min.css"
+	base_url() . "assets/web/jasny-bootstrap/css/jasny-bootstrap.min.css",
+	base_url() . "assets/web/bootstrap-toggle/css/bootstrap-toggle.min.css"
 );
 
 /*
