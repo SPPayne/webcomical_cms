@@ -14,7 +14,7 @@ $(document).ready(function(){
 		
 		$.ajax({
 			type			: "POST",
-			url				: "/admin/upload_profile_img/"+characterid,
+			url				: base_url+"admin/upload_profile_img/"+characterid,
 			data			: formData,
 			contentType		: false,
 			processData		: false,
@@ -42,7 +42,7 @@ $(document).ready(function(){
 			//AJAX request
 			$.ajax({
 				type        : $('#upload_character').attr('method'),
-				url         : '/admin/update_character/'+characterid,
+				url         : base_url+'admin/update_character/'+characterid,
 				data        : $('#upload_character').serialize(),
 				success		: function(response){ handle_response(response); },
 				error		: function(response){ handle_error('Server could not complete the request. Please check that the website is available and try again.'); }

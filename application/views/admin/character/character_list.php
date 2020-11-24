@@ -1,7 +1,7 @@
 <h1>Manage Characters</h1>
 <p>Manage or delete characters below.</p>
 <?php if(!$characters){ ?>
-	<p>You haven't created any characters yet! <a href="/admin/create_character/">Click here to create your first character bio</a>.</p>
+	<p>You haven't created any characters yet! <a href="<?php echo base_url(); ?>admin/create_character/">Click here to create your first character bio</a>.</p>
 <?php } else { ?>
 	<div id="update_response" class="hidden"></div>
 	<div class="table-responsive">
@@ -16,7 +16,7 @@
 			<?php foreach($characters as $character){ ?>
 				<tr>
 					<td>
-						<a href="/character_profiles/<?php echo $character->slug; ?>" target="_blank">
+						<a href="<?php echo base_url(); ?>character_profiles/<?php echo $character->slug; ?>" target="_blank">
 							<?php echo $character->name; ?> <span class="glyphicon glyphicon-new-window"></span>
 						</a>
 					</td>
@@ -29,13 +29,13 @@
 					<?php if($character->filename == NULL){ ?>
 						<td class="danger">No file found, no profile image will be shown.</td>
 					<?php } else { ?>
-						<td><a href="/assets/characters/<?php echo $character->filename; ?>" target="_blank"><?php echo $character->filename; ?></a></td>
+						<td><a href="<?php echo base_url(); ?>assets/characters/<?php echo $character->filename; ?>" target="_blank"><?php echo $character->filename; ?></a></td>
 					<?php } ?>
 					<td class="text-center">
-						<a title="Move character up" class="charactermove-up" href="/admin/move_character/<?php echo $character->characterid; ?>/up"><span class="glyphicon glyphicon-arrow-up"></span></a>&nbsp;&nbsp;
-						<a title="Move character down" class="charactermove-down" href="/admin/move_character/<?php echo $character->characterid; ?>/down"><span class="glyphicon glyphicon-arrow-down"></span></a>&nbsp;&nbsp;
-						<a title="Edit character" href="/admin/create_character/<?php echo $character->characterid; ?>"><span class="glyphicon glyphicon-pencil"></span></a>&nbsp;&nbsp;
-						<a title="Delete character" class="delete-button" href="/admin/delete_character/<?php echo $character->characterid; ?>"><span class="glyphicon glyphicon-trash"></span></a>
+						<a title="Move character up" class="charactermove-up" href="<?php echo base_url(); ?>admin/move_character/<?php echo $character->characterid; ?>/up"><span class="glyphicon glyphicon-arrow-up"></span></a>&nbsp;&nbsp;
+						<a title="Move character down" class="charactermove-down" href="<?php echo base_url(); ?>admin/move_character/<?php echo $character->characterid; ?>/down"><span class="glyphicon glyphicon-arrow-down"></span></a>&nbsp;&nbsp;
+						<a title="Edit character" href="<?php echo base_url(); ?>admin/create_character/<?php echo $character->characterid; ?>"><span class="glyphicon glyphicon-pencil"></span></a>&nbsp;&nbsp;
+						<a title="Delete character" class="delete-button" href="<?php echo base_url(); ?>admin/delete_character/<?php echo $character->characterid; ?>"><span class="glyphicon glyphicon-trash"></span></a>
 					</td>
 				</tr>
 			<?php } ?>

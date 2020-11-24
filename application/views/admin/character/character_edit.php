@@ -10,7 +10,7 @@
 <hr />
 <div id="update_response" class="hidden"></div>
 <?php if($character->filename){ ?>
-	<p><a href="/assets/characters/<?php echo $character->filename; ?>" target="_blank">Preview profile image</a></p>
+	<p><a href="<?php echo base_url(); ?>assets/characters/<?php echo $character->filename; ?>" target="_blank">Preview profile image</a></p>
 <?php } ?>
 <form id="upload_character" role="form" method="POST" data-toggle="validator">
 	<?php $ckeditors = array(); //For collection ?>
@@ -99,7 +99,7 @@
 			</div>
 			<div class="modal-body">
 				<p class="text-center">Now redirecting to character management screen!</p>
-				<p class="text-center"><img src="/assets/icons/loading<?php if($settings['site_webby'] == "Yes"){ ?>-webby<?php } ?>.gif" /></p>
+				<p class="text-center"><img src="<?php echo base_url(); ?>assets/icons/loading<?php if($settings['site_webby'] == "Yes"){ ?>-webby<?php } ?>.gif" /></p>
 			</div>
 		</div>
 	</div>
