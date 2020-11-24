@@ -1,33 +1,33 @@
 <h1>Edit Page "<?php echo $page->name; ?>"</h1>
-<p>Edit the page details below! Or <a href="/admin/manage_pages">click here to edit another page</a>.</p>
+<p>Edit the page details below! Or <a href="<?php echo base_url(); ?>admin/manage_pages">click here to edit another page</a>.</p>
 <?php if($nav && ($nav['first_page'] || $nav['prev_page'] || $nav['next_page'] || $nav['last_page'])){ ?>
 	<nav class="navbar navbar-default">
 		<div class="container-fluid">
 			<ul class="nav navbar-nav">
 				<?php if($nav['first_page']){ ?>
 					<li>
-						<a href="/admin/create_page/<?php echo $nav['first_page']->comicid ?>">
+						<a href="<?php echo base_url(); ?>admin/create_page/<?php echo $nav['first_page']->comicid ?>">
 							<span class="glyphicon glyphicon-fast-backward"></span> First page
 						</a>
 					</li>
 				<?php } ?>
 				<?php if($nav['prev_page']){ ?>
 					<li>
-						<a href="/admin/create_page/<?php echo $nav['prev_page']->comicid ?>">
+						<a href="<?php echo base_url(); ?>admin/create_page/<?php echo $nav['prev_page']->comicid ?>">
 							<span class="glyphicon glyphicon-step-backward"></span> Previous page
 						</a>
 					</li>
 				<?php } ?>
 				<?php if($nav['next_page']){ ?>
 					<li>
-						<a href="/admin/create_page/<?php echo $nav['next_page']->comicid ?>">
+						<a href="<?php echo base_url(); ?>admin/create_page/<?php echo $nav['next_page']->comicid ?>">
 							Next page <span class="glyphicon glyphicon-step-forward"></span>
 						</a>
 					</li>
 				<?php } ?>
 				<?php if($nav['last_page']){ ?>
 					<li>
-						<a href="/admin/create_page/<?php echo $nav['last_page']->comicid ?>">
+						<a href="<?php echo base_url(); ?>admin/create_page/<?php echo $nav['last_page']->comicid ?>">
 							Last page <span class="glyphicon glyphicon-fast-forward"></span>
 						</a>
 					</li>
@@ -44,10 +44,10 @@
 ?>
 <?php if($page->filename){ ?>
 	<p>
-		<a href="/assets/pages/<?php echo $page->filename; ?>" target="_blank">Preview comic file <span class="glyphicon glyphicon-new-window"></span></a>
+		<a href="<?php echo base_url(); ?>assets/pages/<?php echo $page->filename; ?>" target="_blank">Preview comic file <span class="glyphicon glyphicon-new-window"></span></a>
 	</p>
 	<p>
-		<a href="/page/<?php echo $page->slug; ?>/preview" target="_blank">
+		<a href="<?php echo base_url(); ?>page/<?php echo $page->slug; ?>/preview" target="_blank">
 			View page on the website <span class="glyphicon glyphicon-new-window"></span>
 		</a>
 	</p>

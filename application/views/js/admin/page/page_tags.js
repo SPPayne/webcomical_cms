@@ -40,7 +40,7 @@ $(document).ready(function(){
 	function search_tags(tag){
 		$.ajax({
 			type			: "POST",
-			url				: "/admin/search_tags",
+			url				: base_url+"admin/search_tags",
 			data			: { tag: tag },
 			success			: function(response){ auto_suggest_tags(response); },
 			error			: function(response){ handle_error('Server could not complete the request. Please check that the website is available and try again.'); }
@@ -93,7 +93,7 @@ $(document).ready(function(){
 		//Add to the comic page
 		$.ajax({
 			type			: "POST",
-			url				: "/admin/is_tag_new",
+			url				: base_url+"admin/is_tag_new",
 			data			: { tags_tag: tag },
 			success			: function(response){ added_tag(response,tag); },
 			error			: function(response){ handle_error('Server could not complete the request. Please check that the website is available and try again.'); }

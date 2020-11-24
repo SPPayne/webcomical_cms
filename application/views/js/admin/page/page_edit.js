@@ -14,7 +14,7 @@ $(document).ready(function(){
 		
 		$.ajax({
 			type			: $('#upload_page').attr('method'),
-			url				: "/admin/upload_comic/"+pageid,
+			url				: base_url+"admin/upload_comic/"+pageid,
 			data			: formData,
 			contentType		: false,
 			processData		: false,
@@ -42,7 +42,7 @@ $(document).ready(function(){
 			//AJAX request
 			$.ajax({
 				type        : $('#upload_page').attr('method'),
-				url         : '/admin/update_comic/'+pageid,
+				url         : base_url+'admin/update_comic/'+pageid,
 				data        : $('#upload_page').serialize(),
 				success		: function(response){ handle_response(response); },
 				error		: function(response){ handle_error('Server could not complete the request. Please check that the website is available and try again.'); }

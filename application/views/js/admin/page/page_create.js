@@ -18,7 +18,7 @@ $(document).ready(function(){
 			//AJAX request
 			$.ajax({
 				type        : $('#upload_page').attr('method'),
-				url         : '/admin/update_comic/0/1',
+				url         : base_url+'/admin/update_comic/0/1',
 				data        : $('#upload_page').serialize(),
 				success		: function(response){ handle_response(response); },
 				error		: function(response){ handle_error('Server could not complete the request. Please check that the website is available and try again.'); }
@@ -40,7 +40,7 @@ $(document).ready(function(){
 			$('#success').modal('show');
 			setTimeout(
 				function(){
-					window.location.href = "/admin/create_page/" + response;
+					window.location.href = base_url+"admin/create_page/" + response;
 				},3000
 			);
 			
