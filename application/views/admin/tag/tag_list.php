@@ -1,7 +1,7 @@
 <h1>Manage Tags</h1>
-<p>Manage or delete tags below. <a href="/admin/create_tag/">Click here to create a new one!</a></p>
+<p>Manage or delete tags below. <a href="<?php echo base_url(); ?>admin/create_tag/">Click here to create a new one!</a></p>
 <?php if(!$tags){ ?>
-	<p>No tags have been created yet. However, you can <a href="/admin/create_tag/">click here to add your first tag!</a></p>
+	<p>No tags have been created yet. However, you can <a href="<?php echo base_url(); ?>admin/create_tag/">click here to add your first tag!</a></p>
 <?php } else { ?>
 	<div id="update_response" class="hidden"></div>
 	<div class="table-responsive">
@@ -16,7 +16,7 @@
 			<?php foreach($tags as $tag){ ?>
 				<tr>
 					<td>
-						<a href="/tags/<?php echo $tag->slug; ?>" target="_blank">
+						<a href="<?php echo base_url(); ?>tags/<?php echo $tag->slug; ?>" target="_blank">
 							<?php echo $tag->label; ?> <span class="glyphicon glyphicon-new-window"></span>
 						</a>
 					</td>
@@ -24,9 +24,9 @@
 					<td><?php echo $tag->usage; ?></td>
 					<td><?php echo date($settings['site_date_format'].' h:i A',strtotime($tag->added)); ?></td>
 					<td class="text-center">
-						<a title="Edit tag" href="/admin/create_tag/<?php echo $tag->tagid; ?>"><span class="glyphicon glyphicon-pencil"></span></a>&nbsp;&nbsp;
-						<a title="Convert to character" class="convert-button" href="/admin/convert_tag_to_character/<?php echo $tag->tagid; ?>"><span class="glyphicon glyphicon-user"></span></a>&nbsp;&nbsp;
-						<a title="Delete tag" class="delete-button" href="/admin/delete_tag/<?php echo $tag->tagid; ?>"><span class="glyphicon glyphicon-trash"></span></a>
+						<a title="Edit tag" href="<?php echo base_url(); ?>admin/create_tag/<?php echo $tag->tagid; ?>"><span class="glyphicon glyphicon-pencil"></span></a>&nbsp;&nbsp;
+						<a title="Convert to character" class="convert-button" href="<?php echo base_url(); ?>admin/convert_tag_to_character/<?php echo $tag->tagid; ?>"><span class="glyphicon glyphicon-user"></span></a>&nbsp;&nbsp;
+						<a title="Delete tag" class="delete-button" href="<?php echo base_url(); ?>admin/delete_tag/<?php echo $tag->tagid; ?>"><span class="glyphicon glyphicon-trash"></span></a>
 					</td>
 				</tr>
 			<?php } ?>

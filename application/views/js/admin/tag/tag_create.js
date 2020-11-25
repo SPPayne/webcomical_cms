@@ -12,7 +12,7 @@ $(document).ready(function(){
 			//AJAX request
 			$.ajax({
 				type        : $('#create_tag').attr('method'),
-				url         : '/admin/process_tag',
+				url         : base_url+'admin/process_tag',
 				data        : $('#create_tag').serialize(),
 				success		: function(response){ handle_response(response); },
 				error		: function(response){ handle_error('Server could not complete the request. Please check that the website is available and try again.'); }
@@ -34,7 +34,7 @@ $(document).ready(function(){
 			$('#success').modal('show');
 			setTimeout(
 				function(){
-					window.location.href = "/admin/manage_tags";
+					window.location.href = base_url+"admin/manage_tags";
 				},3000
 			);
 			
