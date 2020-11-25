@@ -26,7 +26,7 @@
 			<?php $cnt = 1; foreach($themes['valid'] as $folder => $template){ ?>
 				<div id="<?php echo $folder; ?>" class="col-xs-12 col-md-3 text-center round-box <?php if($folder == $current_template){ ?>bg-primary<?php } else { ?>theme<?php } ?>">
 					<p><b><?php echo $template['name']; ?></b></p>
-					<p><img style="border:1px solid #000; width:100px;" src="<?php echo $template['preview']; ?>" /></p>
+					<p><img style="border:1px solid #000; width:100px;" src="<?php echo base_url($template['preview']); ?>" /></p>
 					<p><?php echo $template['description']; ?></p>
 				</div>
 				<?php if($cnt % 3 == 0){ ?>

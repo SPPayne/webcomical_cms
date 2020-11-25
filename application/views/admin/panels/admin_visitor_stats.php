@@ -16,7 +16,7 @@
 			</tr>
 			<?php foreach($recently_viewed as $page){ ?>
 				<tr>
-					<td><a target="_blank" href="<?php echo $page->url; ?>"><?php echo $page->url; ?> <span class="glyphicon glyphicon-new-window"></span></a></td>
+					<td><a target="_blank" href="<?php echo base_url($page->url); ?>"><?php echo $page->url; ?> <span class="glyphicon glyphicon-new-window"></span></a></td>
 					<td><?php echo ucfirst($page->page_type); ?></td>
 					<td><?php echo $page->last_viewed; ?></td>
 				</tr>
@@ -38,7 +38,7 @@
 			</tr>
 			<?php foreach($page_views as $page){ ?>
 				<tr>
-					<td><a target="_blank" href="<?php echo $page->url; ?>"><?php echo $page->url; ?> <span class="glyphicon glyphicon-new-window"></span></a></td>
+					<td><a target="_blank" href="<?php echo base_url($page->url); ?>"><?php echo $page->url; ?> <span class="glyphicon glyphicon-new-window"></span></a></td>
 					<td><?php echo ucfirst($page->page_type); ?></td>
 					<td><?php echo $page->views; ?></td>
 				</tr>

@@ -19,7 +19,7 @@ $(document).ready(function(){
 		
 		$.ajax({
 			type			: 'POST',
-			url				: "/admin/upload_banner/",
+			url				: base_url+"admin/upload_banner/",
 			data			: formData,
 			contentType		: false,
 			processData		: false,
@@ -33,7 +33,7 @@ $(document).ready(function(){
 	function refresh_banners(){
 	
 		//Load banners table
-		$("#all_banners").load("/admin/webcomic_banners_table",function(response,status,xhr){
+		$("#all_banners").load(base_url+"admin/webcomic_banners_table",function(response,status,xhr){
 			
 			//Run on success
 			if(status != "error"){
@@ -61,7 +61,7 @@ $(document).ready(function(){
 		//AJAX request
 		$.ajax({
 			type        : "POST",
-			url         : '/admin/banner_toggle/'+$(this).attr('id'),
+			url         : base_url+'admin/banner_toggle/'+$(this).attr('id'),
 			success		: function(response){ handle_response(response,refresh); },
 			error		: function(response){ handle_error('Server could not complete the request. Please check that the website is available and try again.'); }
 		});

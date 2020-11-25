@@ -14,7 +14,7 @@ $(document).ready(function(){
 		
 		$.ajax({
 			type			: 'POST',
-			url				: "/admin/upload_favicon/",
+			url				: base_url+"admin/upload_favicon/",
 			data			: formData,
 			contentType		: false,
 			processData		: false,

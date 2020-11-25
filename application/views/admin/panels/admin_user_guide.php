@@ -95,7 +95,7 @@
 <p>Normally these will be features of a UNIX-based OS but Microsoft IIS servers may offer equivalent features.</p>
 <p>Unzip the app to your webspace - this can either be in the "root" of the server or in a sub-folder (or directory) e.g. you could have it installed at http://dev.webcomical.co.uk or http://dev.webcomical.co.uk/comics/ (insert your own domain in for these addresses, obviously).</p>
 <p>Loading your website up should present a login page featuring Webby's gormless visage (don't worry, you can get rid of him later).</p>
-<p class="text-center"><img title="The installation screen" alt="The installation screen" class="bordered" src="/assets/user_guide/00_install_screen.png" /></p>
+<p class="text-center"><img title="The installation screen" alt="The installation screen" class="bordered" src="<?php echo base_url(); ?>assets/user_guide/00_install_screen.png" /></p>
 <p>While the screen should be fairly self-explanatory, here is an overview of what details you will be required to fill in:</p>
 <ul>
 	<li><b>Website URL -</b> the full web address including the prefix (usually http:// or https:// depending on whether you have an *SSL certificate). While you may know your web address, the app will not know what it is and cannot make a 100% safe guess! Hence why you are asked to enter it.</li>
@@ -137,7 +137,7 @@
 <hr />
 
 <h3 id="admin">02. The Admin Sidebar</h3>
-<p class="text-center"><img title="The admin sidebar" alt="The admin sidebar" class="bordered" src="/assets/user_guide/02_sidebar.png" /></p>
+<p class="text-center"><img title="The admin sidebar" alt="The admin sidebar" class="bordered" src="<?php echo base_url(); ?>assets/user_guide/02_sidebar.png" /></p>
 <p>The admin panel features a "sidebar" where all the admin features can be accessed. Most of the features will be outlined below in greater detail but a few items I will describe here:</p>
 <ul>
 	<li><b>Minimise Sidebar -</b> by default the sidebar is shown in full with all the labels on display, but clicking this will minimise the sidebar to show only the icons.</li>
@@ -148,26 +148,26 @@
 <hr />
 
 <h3 id="users">03. User Management</h3>
-<p class="text-center"><img title="The user management options" alt="The user management options" class="bordered" src="/assets/user_guide/03_user_management.png" /></p>
+<p class="text-center"><img title="The user management options" alt="The user management options" class="bordered" src="<?php echo base_url(); ?>assets/user_guide/03_user_management.png" /></p>
 <p>You can add users by selecting "<b>Create a new user</b>" from the admin sidebar. All the fields on the create new user form are required and I recommend setting a real email address for purposes of resetting passwords (see notes above!).</p>
 <p>You cannot add a user with a username or an email address already on an existing user account.</p>
 <p>You can edit your own user profile by selecting "<b>Edit your profile</b>" from the sidebar.</p>
 <p>You can also edit any other user profiles by selecting "<b>Manage users</b>" from the admin sidebar and then selecting the user you want to edit from the drop-down menu.</p>
 <p>To delete a user's profile, select their profile from "<b>Manage users</b>"; there will be a tickbox for "delete this user's account". You will be prompted for confirmation before the deletion is carried out.</p>
-<p class="text-center"><img title="The delete user tickbox" alt="The delete user tickbox" class="bordered" src="/assets/user_guide/03_delete_user.png" /></p>
+<p class="text-center"><img title="The delete user tickbox" alt="The delete user tickbox" class="bordered" src="<?php echo base_url(); ?>assets/user_guide/03_delete_user.png" /></p>
 <p>Please note that you cannot delete your own profile!</p>
 
 <hr />
 
 <h3 id="appearance">04. Webcomic Appearance</h3>
 <p>Webcomic Appearance encompasses many facets of how your webcomic is displayed.</p>
-<p class="text-center"><img title="Webcomic appearance options" alt="Webcomic appearance options" class="bordered" src="/assets/user_guide/04_webcomic_appearance.png" /></p>
+<p class="text-center"><img title="Webcomic appearance options" alt="Webcomic appearance options" class="bordered" src="<?php echo base_url(); ?>assets/user_guide/04_webcomic_appearance.png" /></p>
 <h4 id="settings">Settings</h4>
 <p>The settings page covers lots of things, from the title of your comic, various terminologies (e.g. do you have episodes, acts, pages, etc?) and RSS feed settings.</p>
 <p>If you wish to use comments, you can link a <a title="DISQUS" href="https://disqus.com/">Disqus</a> account in this panel. I recommend using Disqus as it allows users to log in using existing social media accounts, encouraging engagement.</p>
 <p>Most importantly, if you find the <?php echo $this->config->item('app_name','webcomic'); ?> mascot Webby to be frustratingly annoying, you can turn him off here and all traces of him will magically diappear from the app!</p>
 <?php if($settings['site_webby'] == "Yes"){ ?>
-	<p class="text-center"><a rel="nofollow" href="https://www.youtube.com/watch?v=P8aIhJCAvjw"><img title="TA-DAAA!" alt="TA-DAAA!" src="/assets/icons/loading-webby.gif" /></a></p>
+	<p class="text-center"><a rel="nofollow" target="_blank" href="https://www.youtube.com/watch?v=SGFl-VKnKq8"><img title="TA-DAAA!" alt="TA-DAAA!" src="<?php echo base_url(); ?>assets/icons/loading-webby.gif" /></a></p>
 	<p>How could you hate this lil' guy though? Also, yes, this bit of the user guide will also disappear if you turn Webby off.</p>
 <?php } ?>
 <h4 id="themes">Template Themes</h4>
@@ -184,7 +184,7 @@
 <p>This panel assumes that you are going to have both top and bottom navigation bars on your comic - if your comic format allows you to only require one then please take that into account when making selections here!</p>
 <p>This panel also lets you upload a single image that contains your navigation buttons so you can customise their appearance on your webcomic.</p>
 <h4 id="favicon">Favicon</h4>
-<p>This panel lets you upload a "favicon" - details of what a favicon actually is are described <a title="The favicon upload page describes what a favicon is. I don't really want to replicate that information here!" href="/admin/webcomic_favicon">on this panel</a>.</p>
+<p>This panel lets you upload a "favicon" - details of what a favicon actually is are described <a title="The favicon upload page describes what a favicon is. I don't really want to replicate that information here!" href="<?php echo base_url(); ?>admin/webcomic_favicon">on this panel</a>.</p>
 <p>To change your favicon, just upload a new favicon file; this will overwrite your existing one.</p>
 
 <hr />
@@ -213,7 +213,7 @@
 	<li>A template.html file containing something (preferably the HTML markup code for your webcomic!).
 </ul>
 <p>The first and last items on the list above are the only essential factors to whether your template is considered "valid". Templates that are broken will generate an error like the one below on the <a title="Selecting a template for your webcomic" href="#themes">Webcomic Appearance Panel</a>.</p>
-<p class="text-center"><img title="A broken template error message" alt="A broken template error message" class="bordered" src="/assets/user_guide/05_broken_template.png" /></p>
+<p class="text-center"><img title="A broken template error message" alt="A broken template error message" class="bordered" src="<?php echo base_url(); ?>assets/user_guide/05_broken_template.png" /></p>
 <h4 id="template-stubs">Template Stubs</h4>
 <p>Templating basically consists of creating HTML files that contain "stubs", which are special tags that act as placeholders for sections of your webcomic.</p>
 <p>For example, inserting the stub <b>[%COMIC_NAV%]</b> into your HTML files will tell <?php echo $this->config->item('app_name','webcomic'); ?> where you want the webcomic navigation to be loaded on the page. Similarly, placing <b>[%COMIC%]</b> in your HTML file tells the app where you want the actual comic page to load and <b>[%COMIC_BANNER%]</b> tells the app where you want your banner images to load!</p>
@@ -345,15 +345,14 @@
 <ul>
 	<li><a rel="nofollow" title="Redesigning Webcomics" href="http://rachelnabors.com/2011/01/redesigning-webcomics-design-your-site-for-readers/">Redesigning Webcomics: design your site for readers</a> (by Rachel Nabors)</li>
 	<li><a rel="nofollow" title="Do's and Don'ts of Webcomic Website Design" href="http://webcomicalliance.com/business/dos-and-donts-of-webcomic-website-design/">Do's and Don'ts of Webcomic Website Design</a> (by Webcomic Alliance)</li>
-	<li><a rel="nofollow" title="Mobile-Friendly Webcomics" href="https://makewebcomics.com/article/mobile-friendly-webcomics/">Mobile-Friendly Webcomics</a> (by MakeWebcomics.com)</li>
 </ul>
-<p>The last one in particular is noteworthy as most web traffic these days is mobile-based. All of the templates bundled with this app have been created to be flexible on mobile devices so by all means pinch the code for your own templates!</p>
+<p>All of the templates bundled with this app have been created to be flexible on mobile devices so by all means pinch the code for your own templates!</p>
 
 <hr />
 
 <h3 id="pages">06. Pages Management</h3>
 <p>"Pages" refers to the individual comic episodes of your comic. While your comic pages will consist of image files, in terms of this app the term "page" also applies to the website page that displays that image, along with all the information presented with the image.</p>
-<p class="text-center"><img title="Page management options" alt="Page management options" class="bordered" src="/assets/user_guide/06_pages_management.png" /></p>
+<p class="text-center"><img title="Page management options" alt="Page management options" class="bordered" src="<?php echo base_url(); ?>assets/user_guide/06_pages_management.png" /></p>
 <h4 id="about">Edit 'about' page</h4>
 <p>This panel allows you to generate an "about" page for your webcomic. You can enter a title for the page and the "about the comic" section can be as long as you like (within reason!).</p>
 <p>Leaving this section alone will mean that the "about" link will not appear on the comic's site navigation bar.</p>
@@ -361,7 +360,7 @@
 <p>This form will allow you to create a new page for your comic. The form is fairly self-explanatory!</p>
 <p>I recommend utilising the transcript box to present the script of the comic page - this will heavily help search engines pick up on the contents of the image file as, at the time of writing, they are not sophisticated enough to read text from an image file.</p>
 <p>Once you have saved the form, the page will reload and you will then be given the option to upload the image file for the page. You cannot upload a comic file before saving the page it will be attached to! The idea behind this is you might want to plan out several pages in advance before creating the image files.</p>
-<p class="text-center"><img title="Comic file upload box" alt="Comic file upload box" class="bordered" src="/assets/user_guide/06_file_upload_box.png" /></p>
+<p class="text-center"><img title="Comic file upload box" alt="Comic file upload box" class="bordered" src="<?php echo base_url(); ?>assets/user_guide/06_file_upload_box.png" /></p>
 <p>Whether a page is published depends on two things:</p>
 <ul>
 	<li>The published date is equal to or earlier than the current date and time.</li>
@@ -387,10 +386,10 @@
 <p>Chapters are completely optional; if you wish to do a more traditional "newspaper" style comic strip you can ignore chapters altogether.</p>
 <p>If you do have chapters, you can use the chapter select navigation option on your webcomic to allow your readers to jump around the story easier.</p>
 <p>Please note that if you do have chapters, any comic pages not assigned a chapter will be grouped together as "not assigned to a chapter", which will show after all the other chapters in terms of the order of the archive.</p>
-<p class="text-center"><img title="Chapter management options" alt="Chapter management options" class="bordered" src="/assets/user_guide/07_chapter_management.png" /></p>
+<p class="text-center"><img title="Chapter management options" alt="Chapter management options" class="bordered" src="<?php echo base_url(); ?>assets/user_guide/07_chapter_management.png" /></p>
 <h4 id="add-chapter">Add a new comic chapter</h4>
 <p>You can create a new chapter by entering a chapter title and description here (the latter is optional). Once created, the chapter will appear in the "select a chapter" drop-down menu when creating or editing a comic page.</p>
-<p class="text-center"><img title="Chapter selection drop-down menu" alt="Chapter selection drop-down menu" class="bordered" src="/assets/user_guide/07_chapter_select.png" /></p>
+<p class="text-center"><img title="Chapter selection drop-down menu" alt="Chapter selection drop-down menu" class="bordered" src="<?php echo base_url(); ?>assets/user_guide/07_chapter_select.png" /></p>
 <h4 id="add-subchapter">Add a new comic subchapter</h4>
 <p>Subchapters are identical to chapters, except you assign a subchapter to a regular "parent" chapter. Using this you can create chapters like "Chapter 1, Part 1", etc.</p>
 <p>This form is identical to the chapter creation panel, except for the addition of a drop-down menu to select the parent chapter from.</p>
@@ -410,13 +409,13 @@
 <p>You can attach labels to your comic pages in order to identify recurring elements; locations, different artists/authors, pretty much anything! Characters are a special kind of tag in that they can aslo generate a profile page for you to add a character biography or profile to.</p>
 <p>Tagging your pages will generate "tag" pages which collect pages together. For example, it you tagged a bunch of pages with the location "Paris", each page will feature a tag link; clicking this link will bring up a navigable collection of the pages that feature Paris!</p>
 <p>This also aids search engines to determine themes that appear within your webcomic, and are also used by the native search functionality built in this app in order to suggest comic pages that match certain terms (e.g. in the previous example, searching your webcomic for "paris" should return all the pages tagged with "Paris"!).</p>
-<p class="text-center"><img title="Tag management options" alt="Tag management options" class="bordered" src="/assets/user_guide/08_tags_management.png" /></p>
+<p class="text-center"><img title="Tag management options" alt="Tag management options" class="bordered" src="<?php echo base_url(); ?>assets/user_guide/08_tags_management.png" /></p>
 <h4 id="add-character">Add a new character</h4>
 <p>Use this panel to add a new character to your webcomic; enter a name, a short description and a biography.</p>
 <p>Once saved, you will be allowed to add a profile image to the character if you so wish to do so.</p>
 <p>This panel also has a tickbox for "display on profile page?" - leaving this blank will exclude the character from the profiles page. Use this if you want to add biographies for characters that have not appeared in the comic yet.</p>
 <p>Adding characters to your webcomic will cause them all to be listed when creating or editing comic pages; ticking the box next to a character on a comic page will tag that page as featuring the relevant character.</p>
-<p class="text-center"><img title="Character selection drop-down" alt="Character selection drop-down" class="bordered" src="/assets/user_guide/08_character_selection.png" /></p>
+<p class="text-center"><img title="Character selection drop-down" alt="Character selection drop-down" class="bordered" src="<?php echo base_url(); ?>assets/user_guide/08_character_selection.png" /></p>
 <h4 id="manage-characters">Manage comic characters</h4>
 <p>This is the character management panel equivalent to the pages and chapters managment panels! If you've read the sections above, the icons are much the same:</p>
 <ul>
@@ -428,7 +427,7 @@
 <h4 id="add-tag">Add a new tag</h4>
 <p>Simpler than characters, tags are words or phrases that act as labels. As such this panel is a single text box for your new tag!</p>
 <p>Please note that you can actually create tags while on the comic page creation/editing panel; on the bottom of this panel is a text box you can add new tags via (by clicking the "<b>+ Add tag</b>" button next to the text box). While typing tags into the text box the app will attempt to suggest existing tags that match what you are typing.</p>
-<p class="text-center"><img title="The tag box on the page editing panel" alt="The tag box on the page editing panel" class="bordered" src="/assets/user_guide/08_tagging_a_page.png" /></p>
+<p class="text-center"><img title="The tag box on the page editing panel" alt="The tag box on the page editing panel" class="bordered" src="<?php echo base_url(); ?>assets/user_guide/08_tagging_a_page.png" /></p>
 <p>It is not possible to create duplicate tags; for example, if you already have the tag "Paris" and type "Paris" into the tag box, the page will be tagged with the existing tag. Tags are not case-sensitive; "paris" and "Paris" will be considered to be the same tag.</p>
 <h4 id="manage-tags">Manage comic tags</h4>
 <p>This panel allows you to manage your tags, and lists how many pages are tagged per tag.</p>
@@ -445,7 +444,7 @@
 <p>Redirects are an important part of search engine optimisation; if you randomly move or rename a page it is important for search engines to know where the page has gone to!</p>
 <p><?php echo $this->config->item('app_name','webcomic'); ?> handles redirects automatically every time you change the name or title for a page, character or tag.</p>
 <p>Please note that redirects will also be removed if you create new items that match the redirect path. For example, renaming a page from "Episode 1" to "Episode 2" would create a redirect from the old title to the new one as the web address will have changed from "episode-1" to "episode-2". If, however, I then add a new page called "Episode 1" the app will remove the redirection rule as a new page has adopted the web address of "episode-1".</p>
-<p class="text-center"><img title="Redirect management options" alt="Redirect management options" class="bordered" src="/assets/user_guide/09_redirects_management.png" /></p>
+<p class="text-center"><img title="Redirect management options" alt="Redirect management options" class="bordered" src="<?php echo base_url(); ?>assets/user_guide/09_redirects_management.png" /></p>
 <h4 id="add-redirect">Add a new redirect</h4>
 <p>You can manually add redirects if you wish to do so. It is just a case of selecting what type of redirect you want (character, page, tag) and then carefully entering the relevant slugs into the old and new address sections (for clarification of what a "slug" is, please see <a title="Glossary of Terms" href="glossary">the glossary</a>!).</p>
 <p>Please note that the slug / web address / URL you want to redirect to must exist; saving the redirect will fail if the app cannot find a matching URL slug for whatever redirect you are attempting to create.</p>
@@ -456,7 +455,7 @@
 <hr />
 
 <h3 id="search">10. Webcomic Search</h3>
-<p class="text-center"><img title="The search box" alt="The search box" class="bordered" src="/assets/user_guide/10_search_box.png" /></p>
+<p class="text-center"><img title="The search box" alt="The search box" class="bordered" src="<?php echo base_url(); ?>assets/user_guide/10_search_box.png" /></p>
 <p>This app has a rudimentary search function built into it with intention of letting your readers try and find pages relevant to certain terms. However, this is dependent on several factors:</p>
 <ul>
 	<li>If a comic page features the search term in its title</li>
@@ -470,7 +469,7 @@
 
 <h3 id="sitemap">11. robots.txt, sitemap.xml and Other Mysterious Files</h3>
 <p>While using this app you might notice two files that appear in the root directory: "robots.txt" and "sitemap.xml".</p>
-<p class="text-center"><img title="Files in the root directory" alt="Files in the root directory" class="bordered" src="/assets/user_guide/11_files.png" /></p>
+<p class="text-center"><img title="Files in the root directory" alt="Files in the root directory" class="bordered" src="<?php echo base_url(); ?>assets/user_guide/11_files.png" /></p>
 <p>Both of these files are automatically generated by the app every time you create or modify something:</p>
 <ul>
 	<li><b>robots.txt -</b> tells search engines where to find your sitemap file.</li>
@@ -1302,7 +1301,6 @@
 <p>As great as it sounds to encourage people to share pages from your webcomic, filling your page with share buttons <a title="The hidden cost of social share buttons" href="https://thenextweb.com/insider/2015/12/23/the-hidden-cost-of-social-share-buttons/">adds overhead in terms of loading pages and issues of security</a>.</p>
 <p>It appears that this is a hotly debated topic; designers and consultants argue "why make things more difficult for a visitor" but then I reckon that if a reader really engages with your work and wants to share it they will go to the effort of copy/pasting the URL into their social media of choice.</p>
 <p>Regardless, if you really want to add social media then it is perfectly fine to add share buttons and widgets to your <a title="05. Templating" href="#templates">template</a>. In regards to building it into the app, share buttons are changing all the time and I do not really want to open that can of worms by trying to keep up! I removed share buttons from my various blogs because they kept breaking and changing styles every other month.</p>
-<p>If this is a really big issue for you, I recommend you try the <a title="Grawlix CMS" href="http://www.getgrawlix.com/downloads">Grawlix CMS</a> as it is a feature they have built in.</p>
 <h5><b>A built-in commenting system</b></h5>
 <p>I suspect this will be a controversial issue.</p>
 <p>While I am not 100% against possibly adding a baked-in comments system to the app in a later version (I get the feeling I'm making a rod for my own back here!), this release relies on <a title="DISQUS" href="https://disqus.com/">Disqus</a> integration. This in itself can be a controversial choice as DISQUS places adverts in your comments if your traffic reaches over a certain amount unless you pay a subscription fee.</p>

@@ -22,7 +22,7 @@ $(document).ready(function(){
 		//AJAX request
 		$.ajax({
 			type        : $('#update_comic').attr('method'),
-			url         : '/admin/update_settings/',
+			url         : base_url+'admin/update_settings/',
 			data        : $('#update_comic').serialize(),
 			success		: function(response){ handle_response(response); },
 			error		: function(response){ handle_error('Server could not complete the request. Please check that the website is available and try again.'); }

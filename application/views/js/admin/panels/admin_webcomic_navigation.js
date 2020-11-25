@@ -9,7 +9,7 @@ $(document).ready(function(){
 		//AJAX request
 		$.ajax({
 			type        : $('#update_nav').attr('method'),
-			url         : '/admin/update_navigation/',
+			url         : base_url+'admin/update_navigation/',
 			data        : $('#update_nav').serialize(),
 			success		: function(response){ handle_response(response); },
 			error		: function(response){ handle_error('Server could not complete the request. Please check that the website is available and try again.'); }
@@ -32,7 +32,7 @@ $(document).ready(function(){
 		
 		$.ajax({
 			type			: 'POST',
-			url				: "/admin/upload_nav_buttons/",
+			url				: base_url+"admin/upload_nav_buttons/",
 			data			: formData,
 			contentType		: false,
 			processData		: false,

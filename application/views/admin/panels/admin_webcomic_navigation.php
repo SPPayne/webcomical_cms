@@ -48,9 +48,9 @@
 		$this->load->view('/admin/shared/admin_file_upload');
 	?>
 	<?php if($nav_buttons){ ?>
-		<p><a target="_blank" href="/assets/custom/navigation_buttons.png">View current custom buttons</a></p>
+		<p><a target="_blank" href="<?php echo base_url(); ?>assets/custom/navigation_buttons.png">View current custom buttons</a></p>
 	<?php } ?>
 	<p>The navigation buttons are responsive based on device size. Buttons are generated from one single "sprite sheet". You can cutomise them using the template below - just right-click and "save as".</p>
 	<p>Once customised, upload your sprite sheet using the upload button above. Your sprite sheet <em>must</em> match the dimensions of the template image below (although you can make the buttons smaller, use transparency, etc.!).</p>
-	<p class="text-center"><img src="/assets/icons/buttons_template.png" alt="Buttons template image" title="This is the buttons template! Please do create your own sheet of buttons, this one is hideous." /></p>
+	<p class="text-center"><img src="<?php echo base_url(); ?>assets/icons/buttons_template.png" alt="Buttons template image" title="This is the buttons template! Please do create your own sheet of buttons, this one is hideous." /></p>
 </form>

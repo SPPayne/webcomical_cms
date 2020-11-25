@@ -18,7 +18,7 @@ $(document).ready(function(){
 			//AJAX request
 			$.ajax({
 				type        : $('#about_update').attr('method'),
-				url         : '/admin/update_about/',
+				url         : base_url+'admin/update_about/',
 				data        : $('#about_update').serialize(),
 				success		: function(response){ handle_response(response); },
 				error		: function(response){ handle_error('Server could not complete the request. Please check that the website is available and try again.'); }

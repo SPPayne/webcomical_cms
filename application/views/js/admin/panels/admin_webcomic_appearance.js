@@ -12,7 +12,7 @@ $(document).ready(function(){
 		//AJAX request
 		$.ajax({
 			type        : 'POST',
-			url         : '/admin/update_theme/'+theme,
+			url         : base_url+'admin/update_theme/'+theme,
 			success		: function(response){ handle_response(response,theme); },
 			error		: function(response){ handle_error('Server could not complete the request. Please check that the website is available and try again.'); }
 		});
