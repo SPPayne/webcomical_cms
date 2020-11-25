@@ -32,6 +32,9 @@ class User_model extends CI_Model {
 		
 		//Load validation library
 		$this->load->library('validation');
+		
+		//Load auth library
+		$this->load->model('Ion_auth_model','Auth');
 
 		//Set error array
 		$errors = array();
@@ -48,7 +51,6 @@ class User_model extends CI_Model {
 		
 		//If userid, get existing details
 		if($userid != FALSE){
-			$this->load->model('Ion_auth_model','Auth'); //Load auth library
 			$user = $this->Auth->user($userid)->row();
 		}
 		
