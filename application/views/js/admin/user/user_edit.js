@@ -5,7 +5,7 @@ $(document).ready(function(){
 		
 		//Only if value
 		if($(this).val() != ""){
-			window.location.href = "/admin/manage_users/" + $(this).val();
+			window.location.href = base_url+"admin/manage_users/" + $(this).val();
 		}
 		
 	});
@@ -46,7 +46,7 @@ $(document).ready(function(){
 		//AJAX request
 		$.ajax({
 			type        : $('#update_user').attr('method'),
-			url         : '/admin/update_user/'+userid,
+			url         : base_url+'admin/update_user/'+userid,
 			data        : $('#update_user').serialize(),
 			success		: function(response){ handle_response(response); },
 			error		: function(response){ handle_error('Server could not complete the request. Please check that the website is available and try again.'); }
@@ -72,7 +72,7 @@ $(document).ready(function(){
 		//Deletion = redirect to managment page
 		if(response.indexOf("delete") != -1){
 			
-			window.location.href = "/admin/manage_users/";
+			window.location.href = base_url+"admin/manage_users/";
 			
 		}
 		
