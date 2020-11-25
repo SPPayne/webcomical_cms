@@ -238,7 +238,7 @@
 		//Update user pref for sidebar
 		$.ajax({
 			type	: 'POST',
-			url		: '/admin/update_sidebar/'+sidebar
+			url		: base_url+'admin/update_sidebar/'+sidebar
 		});
 		
 	}

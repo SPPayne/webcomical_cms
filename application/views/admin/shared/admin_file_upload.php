@@ -46,7 +46,7 @@
 			</div>
 			<div class="modal-body">
 				<p class="text-center">Please wait...</p>
-				<p class="text-center"><img src="/assets/icons/loading<?php if($settings['site_webby'] == "Yes"){ ?>-webby<?php } ?>.gif" /></p>
+				<p class="text-center"><img src="<?php echo base_url(); ?>assets/icons/loading<?php if($settings['site_webby'] == "Yes"){ ?>-webby<?php } ?>.gif" /></p>
 			</div>
 		</div>
 	</div>
