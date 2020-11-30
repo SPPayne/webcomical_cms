@@ -17,7 +17,7 @@
 						<?php echo form_submit('submit', lang('forgot_password_submit_btn'), 'class="btn btn-lg btn-primary btn-block"');?>
 					</div>
 				<?php echo form_close();?>
-				<p><a href="/auth">Back to login page</a></p>
+				<p><a href="<?php echo base_url(); ?>auth">Back to login page</a></p>
 			</div>
 		</div>
 	</div>
