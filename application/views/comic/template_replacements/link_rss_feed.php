@@ -1,1 +1,1 @@
-<a class="nav-link" href="/feed"><?php echo $site['site_rss_link_text']; ?></a>
+<a class="nav-link" href="<?php echo base_url(); ?>feed"><?php echo $site['site_rss_link_text']; ?></a>

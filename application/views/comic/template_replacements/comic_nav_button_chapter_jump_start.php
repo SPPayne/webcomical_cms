@@ -1,6 +1,6 @@
 <?php if(isset($nav)){ ?>
 	<?php if($nav['chapter_jump']['start'] && !empty($nav['chapter_jump']['start'])){ ?>
-		<a title="First <?php echo $site['site_page_term']; ?> in <?php echo $site['site_chapter_term']; ?>" class="nav-link" href="/page/<?php echo $nav['chapter_jump']['start']->slug; ?><?php if($nav['preview']){ ?>/preview<?php } ?>">
+		<a title="First <?php echo $site['site_page_term']; ?> in <?php echo $site['site_chapter_term']; ?>" class="nav-link" href="<?php echo base_url(); ?>page/<?php echo $nav['chapter_jump']['start']->slug; ?><?php if($nav['preview']){ ?>/preview<?php } ?>">
 			<img 
 				class="comic-nav-button-chapterfirst comic-nav-button" 
 				alt="First <?php echo $site['site_page_term']; ?> in <?php echo $site['site_chapter_term']; ?>" 

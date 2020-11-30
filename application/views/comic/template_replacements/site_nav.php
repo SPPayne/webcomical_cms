@@ -13,7 +13,7 @@
 	<div class="navbar-collapse collapse" id="site_navbar_items">
 		<ul class="nav navbar-nav">
 			<li <?php if($this->router->fetch_method() == "index"){ ?>class="active"<?php } ?>>
-				<a class="nav-link" href="/">Home</a>
+				<a class="nav-link" href="<?php echo base_url(); ?>">Home</a>
 			</li>
 			<?php if(isset($site['about']) && $site['about']){ ?>
 				<li <?php if($this->router->fetch_method() == "about"){ ?>class="active"<?php } ?>>

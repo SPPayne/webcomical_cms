@@ -1,7 +1,7 @@
 <?php if(isset($page)){ ?>
 	<?php if($page && isset($page->filename)){ ?>
 		<div class="center-block" id="the-comic-wrapper">
-			<?php $filename = '/assets/pages/' . $page->filename; ?>
+			<?php $filename = base_url() . 'assets/pages/' . $page->filename; ?>
 			<?php if(pathinfo($filename,PATHINFO_EXTENSION) != "swf"){ ?>
 				<img id="the-comic" class="center-block img-responsive" title="<?php echo $page->title_text; ?>" alt="<?php echo $page->name; ?>" src="<?php echo $filename; ?>" />
 			<?php } else { //Handle antiquated Flash files because apparently sometimes people still use them...? ?>

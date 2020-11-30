@@ -7,13 +7,13 @@
 			<?php foreach($cast as $character){ ?>
 				<hr />
 				<?php if($character->filename){ ?>
-					<a title="<?php echo $character->name; ?>" href="/character_profiles/<?php echo $character->slug; ?>">
-						<div class="character-thumbnail" style="background-image:url('/assets/characters/<?php echo $character->filename; ?>')" ></div>
+					<a title="<?php echo $character->name; ?>" href="<?php echo base_url(); ?>character_profiles/<?php echo $character->slug; ?>">
+						<div class="character-thumbnail" style="background-image:url('<?php echo base_url(); ?>assets/characters/<?php echo $character->filename; ?>')" ></div>
 					</a>
 				<?php } ?>
 				<h2><?php echo $character->name; ?></h2>
 				<?php echo $character->excerpt; ?>
-				<p><a title="<?php echo $character->name; ?>" href="/character_profiles/<?php echo $character->slug; ?>">Find out more about <?php echo $character->name; ?></a>
+				<p><a title="<?php echo $character->name; ?>" href="<?php echo base_url(); ?>character_profiles/<?php echo $character->slug; ?>">Find out more about <?php echo $character->name; ?></a>
 				<div class="clearfix">&nbsp;</div>
 			<?php } ?>
 		<?php } else { //Show generic list of names ?>
@@ -21,7 +21,7 @@
 			<ul>
 				<?php foreach($cast as $character){ ?>
 					<li>
-						<a title="<?php echo $character->name; ?>" href="/character_profiles/<?php echo $character->slug; ?>"><?php echo $character->name; ?></a>
+						<a title="<?php echo $character->name; ?>" href="<?php echo base_url(); ?>character_profiles/<?php echo $character->slug; ?>"><?php echo $character->name; ?></a>
 					</li>
 				<?php } ?>
 			</ul>

@@ -22,7 +22,7 @@
 				<?php if(!empty($chapter->pages)){ ?>
 					<?php echo $open_tag; ?>
 						<?php foreach($chapter->pages as $page){ ?>
-							<li><a href="/page/<?php echo $page->slug; ?>"><?php echo $page->name; ?></a></li>
+							<li><a href="<?php echo base_url(); ?>page/<?php echo $page->slug; ?>"><?php echo $page->name; ?></a></li>
 						<?php } ?>
 					<?php echo $close_tag; ?>
 				<?php } ?>
@@ -33,7 +33,7 @@
 							<?php if($subchapter->description){ echo $subchapter->description; } ?>
 							<?php echo $open_tag; ?>
 								<?php foreach($subchapter->pages as $page){ ?>
-									<li><a href="/page/<?php echo $page->slug; ?>"><?php echo $page->name; ?></a></li>
+									<li><a href="<?php echo base_url(); ?>page/<?php echo $page->slug; ?>"><?php echo $page->name; ?></a></li>
 								<?php } ?>
 							<?php echo $close_tag; ?>
 						<?php } else { continue; } ?>

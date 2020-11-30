@@ -25,3 +25,8 @@
 	<!-- Theme custom CSS -->
 	<link href="<?php echo base_url(); ?>assets/templates/<?php echo $site['site_theme']; ?>/style.css" rel="stylesheet" />
 <?php } ?>
+
+<!-- JS needs to know what the website URL is -->
+<script type="text/javascript">
+	var base_url = "<?php echo base_url(); ?>";
+</script>

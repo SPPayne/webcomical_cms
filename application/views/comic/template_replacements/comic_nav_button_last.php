@@ -1,6 +1,6 @@
 <?php if(isset($nav)){ ?>
 	<?php if($nav['last_page'] && !empty($nav['last_page'])){ //Last page ?>
-		<a title="Last <?php echo $site['site_page_term']; ?>" class="nav-link" href="/page/<?php echo $nav['last_page']->slug; ?><?php if($nav['preview']){ ?>/preview<?php } ?>">
+		<a title="Last <?php echo $site['site_page_term']; ?>" class="nav-link" href="<?php echo base_url(); ?>page/<?php echo $nav['last_page']->slug; ?><?php if($nav['preview']){ ?>/preview<?php } ?>">
 			<img 
 				class="comic-nav-button-last comic-nav-button" 
 				alt="Last <?php echo $site['site_page_term']; ?>" 

@@ -1,6 +1,6 @@
 <?php if(isset($nav)){ ?>
 	<?php if($nav['next_page'] && !empty($nav['next_page'])){ //Next page ?>
-		<a title="Next <?php echo $site['site_page_term']; ?>" class="nav-link next_page" href="/page/<?php echo $nav['next_page']->slug; ?><?php if($nav['preview']){ ?>/preview<?php } ?>">
+		<a title="Next <?php echo $site['site_page_term']; ?>" class="nav-link next_page" href="<?php echo base_url(); ?>page/<?php echo $nav['next_page']->slug; ?><?php if($nav['preview']){ ?>/preview<?php } ?>">
 			<img 
 				class="comic-nav-button-next comic-nav-button" 
 				alt="Next <?php echo $site['site_page_term']; ?>" 
