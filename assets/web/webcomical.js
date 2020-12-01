@@ -116,13 +116,13 @@ $(document).ready(function(){
 				var page = false;
 				
 				//Detect pathname
-				var pathname = window.location.pathname;
+				var pathname = window.location.href;
 				
 				//DEBUG
-				//alert(pathname);
+				//console.log(pathname);
 				
 				//Comic page
-				if(pathname == "/" || pathname.indexOf("/page/") >= 0){
+				if(pathname == base_url || pathname.indexOf(base_url + "page/") >= 0){
 				
 					//To the left = next page
 					if(direction == "left"){
@@ -134,6 +134,9 @@ $(document).ready(function(){
 						page = $('#navbar_top .prev_page').attr('href');
 					}
 					
+					//DEBUG
+					//console.log(page);
+					
 					if(page){
 						window.location.href = page;
 					}
@@ -141,7 +144,7 @@ $(document).ready(function(){
 				}
 				
 				//Tag pages
-				if(pathname.indexOf("/tags/") >= 0 || pathname.indexOf("/character_appearances/") >= 0 || pathname.indexOf("/search/") >= 0){
+				if(pathname.indexOf(base_url + "tags/") >= 0 || pathname.indexOf(base_url + "character_appearances/") >= 0 || pathname.indexOf(base_url + "search/") >= 0){
 					
 					//To the left = next page
 					if(direction == "left"){
