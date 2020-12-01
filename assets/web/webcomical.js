@@ -11,7 +11,7 @@ $(document).ready(function(){
 		$.ajax({
 			context		: $(this),
 			type        : 'POST',
-			url         : '/save_bookmark',
+			url         : base_url + 'save_bookmark',
 			data        : { bookmark: $(location).attr('href') },
 			success		: function(response){ save_bookmark_response(response,id); },
 			error		: function(response){ alert('ERROR: Server could not complete the request. Please check that the website is available and try again.'); }
@@ -51,7 +51,7 @@ $(document).ready(function(){
 		$.ajax({
 			context		: $(this),
 			type        : 'POST',
-			url         : '/load_bookmark',
+			url         : base_url + 'load_bookmark',
 			success		: function(response){ load_bookmark_response(response); },
 			error		: function(response){ alert('ERROR: Server could not complete the request. Please check that the website is available and try again.'); }
 		});
@@ -74,7 +74,7 @@ $(document).ready(function(){
 	
 	//Chapter or page select
 	$('.chapter_select, .page_select').on("change",function(){
-		window.location.href = "/page/" + $(this).val();
+		window.location.href = base_url + "page/" + $(this).val();
 	});
 	
 	//Navigate on key presses - simulates a click on next/prev buttons
