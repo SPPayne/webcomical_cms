@@ -116,7 +116,7 @@
 	max-width: 100%;
 	background-size: 100%;
 	/* New CSS gubbins - first URL is custom URL, if file doesn't exist it apparently defaults to the other! */
-	background-image: url('/assets/custom/navigation_buttons.png'), url('/assets/icons/buttons_template.png');
+	background-image: url('../custom/navigation_buttons.png'), url('../icons/buttons_template.png');
 }
  
 .comic-nav-button-prev{ 
@@ -189,7 +189,7 @@
 }
 	
 .tag-thumbnail{
-	background: url('/assets/icons/tag-loading.gif') #000 no-repeat;
+	background: url('../icons/tag-loading.gif') #000 no-repeat;
 	background-position: center;
 	border: 1px solid #ccc;
 	width: 100%;
