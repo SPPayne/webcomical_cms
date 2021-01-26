@@ -160,15 +160,24 @@ class CI_Session {
 		// unless it is being currently created or regenerated
 		elseif (isset($_COOKIE[$this->_config['cookie_name']]) && $_COOKIE[$this->_config['cookie_name']] === session_id())
 		{
-			setcookie(
-				$this->_config['cookie_name'],
-				session_id(),
-				(empty($this->_config['cookie_lifetime']) ? 0 : time() + $this->_config['cookie_lifetime']),
-				$this->_config['cookie_path'],
-				$this->_config['cookie_domain'],
-				$this->_config['cookie_secure'],
-				TRUE
-			);
+			//THIS IS A HACK - the CI team don't seem too interested in implementing a fix for v3 so I've pinched this bodge off Github via my mate Dan Scott.
+			//If you update CodeIgniter (i.e. the system files) this will get overwritten and will break the samesite stuff again.
+			//Hopefully if you're updating it they've bloody fixed it though!
+			if (PHP_VERSION_ID < 70300) {
+				setcookie(
+					$this->_config['cookie_name'], session_id(), (empty($this->_config['cookie_lifetime']) ? 0 : time() + $this->_config['cookie_lifetime']), $this->_config['cookie_path'] . "; samesite=" . $this->_config['cookie_samesite'], $this->_config['cookie_domain'], $this->_config['cookie_secure'], true //Enforce HTTP only cookie for security
+				);
+			}
+			else {
+				setcookie($this->_config['cookie_name'], session_id(), [
+					'expires' => (empty($this->_config['cookie_lifetime']) ? 0 : time() + $this->_config['cookie_lifetime']),
+					'path' => $this->_config['cookie_path'],
+					'domain' => $this->_config['cookie_domain'],
+					'secure' => $this->_config['cookie_secure'],
+					'httponly' => true, // Enforce HTTP only cookie for security
+					'samesite' => $this->_config['cookie_samesite'],
+				]);
+			}
 		}
 
 		$this->_ci_init_vars();
@@ -281,18 +290,31 @@ class CI_Session {
 		{
 			ini_set('session.name', $params['cookie_name']);
 		}
-
+		
+		isset($params['cookie_samesite']) OR $params['cookie_samesite'] = config_item('cookie_samesite'); //Bodge for the samesite cookie stuff - refer to comment by searching for "samesite" in this file
 		isset($params['cookie_path']) OR $params['cookie_path'] = config_item('cookie_path');
 		isset($params['cookie_domain']) OR $params['cookie_domain'] = config_item('cookie_domain');
 		isset($params['cookie_secure']) OR $params['cookie_secure'] = (bool) config_item('cookie_secure');
-
-		session_set_cookie_params(
-			$params['cookie_lifetime'],
-			$params['cookie_path'],
-			$params['cookie_domain'],
-			$params['cookie_secure'],
-			TRUE // HttpOnly; Yes, this is intentional and not configurable for security reasons
-		);
+		
+		//This is a bodge for samesite cookie stuff - really you should be on at least PHP 7.3 by now!
+		if (PHP_VERSION_ID < 70300) {
+			session_set_cookie_params(
+				$params['cookie_lifetime'],
+				$params['cookie_path'] . '/;SameSite=' . $params['cookie_secure'], //This is a hack, kiddos
+				$params['cookie_domain'],
+				$params['cookie_secure'],
+				TRUE // HttpOnly; Yes, this is intentional and not configurable for security reasons
+			);
+		} else {
+			session_set_cookie_params([
+				'lifetime' => $params['cookie_lifetime'],
+				'path' => $params['cookie_path'],
+				'domain' => $params['cookie_domain'],
+				'secure' => $params['cookie_secure'],
+				'httponly' => TRUE, // HttpOnly; Yes, this is intentional and not configurable for security reasons
+				'samesite' => $params['cookie_secure']
+			]);
+		}
 
 		if (empty($expiration))
 		{
