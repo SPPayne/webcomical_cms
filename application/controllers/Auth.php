@@ -32,7 +32,7 @@ class Auth extends CI_Controller {
 		
 		//Reassigns assets to data
 		$this->data['assets'] = $this->config->item('assets','webcomic');
-		$this->data['assets']['css'][] = '/assets/css/auth.css';
+		$this->data['assets']['css'][] = base_url() . '/assets/css/auth.css';
 		
 	}
 
