@@ -613,7 +613,7 @@ $config['uploads'] = array(
 		'max_size'		=> 25000,
 		'max_width'		=> 1000,
 		'max_height'	=> 20000,
-		'allowed_types'	=> 'gif|jpg|png|swf'
+		'allowed_types'	=> 'gif|jpg|png'
 	),
 	'favicon'		=> array(
 		'max_size'		=> 1000,
