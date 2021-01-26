@@ -87,7 +87,7 @@
 <h3 id="install">00. Installation</h3>
 <p><?php echo $this->config->item('app_name','webcomic'); ?>, like any software, has a few minimum requirements. Please note that the app <i>should</i> work in later versions and might even work in older versions but these are the ideal minimum requirements based on the app's development:</p>
 <ul>
-	<li>PHP 5.5 (possibly 5.4)</li>
+	<li>PHP 5.5 (possibly 5.4), ideally you should be running PHP 7.3 or above!</li>
 	<li>MySQL 5.6 (possibly 5.5)</li>
 	<li>Apache (or Apache2) web server*</li>
 </ul>
