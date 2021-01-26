@@ -13,15 +13,9 @@
 			<?php foreach($pages as $page){ ?>
 				<div class="col-xs-12 col-sm-3">
 					<a class="tag-link" title="<?php echo $page->name; ?>" href="<?php echo base_url(); ?>page/<?php echo $page->slug; ?>">
-						<?php if(pathinfo($page->filename,PATHINFO_EXTENSION) != "swf"){ ?>
-							<div class="tag-thumbnail">
-								<div class="tag-thumbnail-img" style="background-size: 100%; background-image:url('<?php echo base_url(); ?>assets/pages/<?php echo $page->filename; ?>')"></div>
-							</div>
-						<?php } else { ?>
-							<div class="tag-thumbnail" style="background-image:url('<?php echo base_url(); ?>assets/icons/flash.png')" >
-								<p class="center block">Adobe Flash File</p>
-							</div>
-						<?php } ?>
+						<div class="tag-thumbnail">
+							<div class="tag-thumbnail-img" style="background-size: 100%; background-image:url('<?php echo base_url(); ?>assets/pages/<?php echo $page->filename; ?>')"></div>
+						</div>
 					</a>
 					<p><a href="<?php echo base_url(); ?>page/<?php echo $page->slug; ?>"><?php echo $page->name; ?></a> - <?php echo date($site['site_date_format'],strtotime($page->published)); ?></p>
 				</div>
