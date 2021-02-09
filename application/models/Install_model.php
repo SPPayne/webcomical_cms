@@ -454,7 +454,8 @@ class Install_model extends CI_Model {
 		}
 
 		//Update the row
-		$htaccess = str_replace("RewriteBase /","RewriteBase " . $str . "/",$htaccess);
+		if(substr($str,-1) != "/"){ $str .= "/"; } //Account for trailing slash
+		$htaccess = str_replace("RewriteBase /","RewriteBase " . $str,$htaccess);
 
 		//Write the new database.php file
 		$handle = fopen($htaccess_file,'w+');
